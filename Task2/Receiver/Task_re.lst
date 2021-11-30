@@ -1,0 +1,2495 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.82 build 9453 
+                                                                                               Sun Nov 28 15:42:33 2021
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 9453
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 9453"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 4 "D:\EE\Mplabcode\Task_re\Receiver.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 4 "D:\EE\Mplabcode\Task_re\Receiver.c"
+    45  2007  FF29               	dw 0xff29 ;#
+    46                           	FNCALL	_main,_init
+    47                           	FNCALL	_main,_show
+    48                           	FNCALL	_show,_enable
+    49                           	FNCALL	_show,_show_a
+    50                           	FNCALL	_show_a,_tostring
+    51                           	FNCALL	_show_a,_enable
+    52                           	FNCALL	_init,_delay
+    53                           	FNCALL	_init,_enable
+    54                           	FNCALL	_tostring,___almod
+    55                           	FNCALL	_tostring,___aldiv
+    56                           	FNCALL	_enable,_delay
+    57                           	FNROOT	_main
+    58                           	FNCALL	intlevel1,_ccp1
+    59                           	global	intlevel1
+    60                           	FNROOT	intlevel1
+    61                           	global	_s
+    62                           psect	idataBANK0,class=CODE,space=0,delta=2
+    63                           global __pidataBANK0
+    64  0330                     __pidataBANK0:
+    65                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+    66                           	line	13
+    67                           
+    68                           ;initializer for _s
+    69  0330  3431               	retlw	031h
+    70  0331  3430               	retlw	030h
+    71  0332  3430               	retlw	030h
+    72  0333  3430               	retlw	030h
+    73  0334  3430               	retlw	030h
+    74  0335  3430               	retlw	030h
+    75  0336  3430               	retlw	030h
+    76  0337  3400               	retlw	0
+    77  0338  3400               	retlw	0
+    78  0339  3400               	retlw	0
+    79  033A  3400               	retlw	0
+    80  033B  3400               	retlw	0
+    81  033C  3400               	retlw	0
+    82  033D  3400               	retlw	0
+    83  033E  3400               	retlw	0
+    84  033F  3400               	retlw	0
+    85  0340  3400               	retlw	0
+    86  0341  3400               	retlw	0
+    87  0342  3400               	retlw	0
+    88  0343  3400               	retlw	0
+    89                           	global	_a
+    90                           	global	_data
+    91                           	global	_showdata
+    92                           	global	_end
+    93                           	global	_flag
+    94                           	global	_showflag
+    95                           	global	_CCP1CON
+    96  0017                     _CCP1CON	set	23
+    97                           	global	_CCPR1H
+    98  0016                     _CCPR1H	set	22
+    99                           	global	_PORTD
+   100  0008                     _PORTD	set	8
+   101                           	global	_T1CON
+   102  0010                     _T1CON	set	16
+   103                           	global	_TMR1H
+   104  000F                     _TMR1H	set	15
+   105                           	global	_TMR1L
+   106  000E                     _TMR1L	set	14
+   107                           	global	_CARRY
+   108  0018                     _CARRY	set	24
+   109                           	global	_CCP1IF
+   110  0062                     _CCP1IF	set	98
+   111                           	global	_CCP1M0
+   112  00B8                     _CCP1M0	set	184
+   113                           	global	_GIE
+   114  005F                     _GIE	set	95
+   115                           	global	_PEIE
+   116  005E                     _PEIE	set	94
+   117                           	global	_RA3
+   118  002B                     _RA3	set	43
+   119                           	global	_RA4
+   120  002C                     _RA4	set	44
+   121                           	global	_RA5
+   122  002D                     _RA5	set	45
+   123                           	global	_RC7
+   124  003F                     _RC7	set	63
+   125                           	global	_TMR1IF
+   126  0060                     _TMR1IF	set	96
+   127                           	global	_TMR1ON
+   128  0080                     _TMR1ON	set	128
+   129                           	global	_ADCON1
+   130  009F                     _ADCON1	set	159
+   131                           	global	_TRISA
+   132  0085                     _TRISA	set	133
+   133                           	global	_TRISB
+   134  0086                     _TRISB	set	134
+   135                           	global	_TRISD
+   136  0088                     _TRISD	set	136
+   137                           	global	_CCP1IE
+   138  0462                     _CCP1IE	set	1122
+   139                           	global	_TRISC2
+   140  043A                     _TRISC2	set	1082
+   141                           	global	_TRISC7
+   142  043F                     _TRISC7	set	1087
+   143                           	global	_EEADR
+   144  010D                     _EEADR	set	269
+   145                           	global	_EEDATA
+   146  010C                     _EEDATA	set	268
+   147                           	global	_EECON1
+   148  018C                     _EECON1	set	396
+   149                           	global	_EECON2
+   150  018D                     _EECON2	set	397
+   151                           	global	_RD
+   152  0C60                     _RD	set	3168
+   153                           	global	_WR
+   154  0C61                     _WR	set	3169
+   155                           	global	_WREN
+   156  0C62                     _WREN	set	3170
+   157                           	file	"Task_re.as"
+   158                           	line	#
+   159                           psect cinit,class=CODE,delta=2
+   160                           global start_initialization
+   161  02F9                     start_initialization:
+   162                           
+   163                           psect	bitbssCOMMON,class=COMMON,bit,space=1
+   164                           global __pbitbssCOMMON
+   165  03B8                     __pbitbssCOMMON:
+   166  03B8                     _flag:
+   167  03B8                            ds      1
+   168                           
+   169  03B9                     _showflag:
+   170  03B9                            ds      1
+   171                           
+   172                           psect	bssCOMMON,class=COMMON,space=1
+   173                           global __pbssCOMMON
+   174  0078                     __pbssCOMMON:
+   175  0078                     _end:
+   176  0078                            ds      1
+   177                           
+   178                           psect	bssBANK0,class=BANK0,space=1
+   179                           global __pbssBANK0
+   180  0040                     __pbssBANK0:
+   181  0040                     _a:
+   182  0040                            ds      15
+   183                           
+   184  004F                     _data:
+   185  004F                            ds      4
+   186                           
+   187  0053                     _showdata:
+   188  0053                            ds      4
+   189                           
+   190                           psect	dataBANK0,class=BANK0,space=1
+   191                           global __pdataBANK0
+   192  0057                     __pdataBANK0:
+   193                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+   194  0057                     _s:
+   195  0057                            ds      20
+   196                           
+   197                           psect clrtext,class=CODE,delta=2
+   198                           global clear_ram
+   199                           ;	Called with FSR containing the base address, and
+   200                           ;	W with the last address+1
+   201  0357                     clear_ram:
+   202  0357  0064               	clrwdt			;clear the watchdog before getting into this loop
+   203  0358                     clrloop:
+   204  0358  0180               	clrf	indf		;clear RAM location pointed to by FSR
+   205  0359  0A84               	incf	fsr,f		;increment pointer
+   206  035A  0604               	xorwf	fsr,w		;XOR with final address
+   207  035B  1903               	btfsc	status,2	;have we reached the end yet?
+   208  035C  3400               	retlw	0		;all done for this memory range, return
+   209  035D  0604               	xorwf	fsr,w		;XOR again to restore value
+   210  035E  2B58               	goto	clrloop		;do the next byte
+   211                           
+   212                           ; Clear objects allocated to BITCOMMON
+   213                           psect cinit,class=CODE,delta=2
+   214  02F9  01F7               	clrf	((__pbitbssCOMMON/8)+0)&07Fh
+   215                           ; Clear objects allocated to COMMON
+   216                           psect cinit,class=CODE,delta=2
+   217  02FA  01F8               	clrf	((__pbssCOMMON)+0)&07Fh
+   218                           ; Clear objects allocated to BANK0
+   219                           psect cinit,class=CODE,delta=2
+   220  02FB  1383               	bcf	status, 7	;select IRP bank0
+   221  02FC  3040               	movlw	low(__pbssBANK0)
+   222  02FD  0084               	movwf	fsr
+   223  02FE  3057               	movlw	low((__pbssBANK0)+017h)
+   224  02FF  120A  118A  2357   	fcall	clear_ram
+              120A  118A         
+   225                           global btemp
+   226                           psect inittext,class=CODE,delta=2
+   227                           global init_fetch,btemp
+   228                           ;	Called with low address in FSR and high address in W
+   229  0344                     init_fetch:
+   230  0344  087E               	movf btemp,w
+   231  0345  008A               	movwf pclath
+   232  0346  087F               	movf btemp+1,w
+   233  0347  0082               	movwf pc
+   234                           global init_ram
+   235                           ;Called with:
+   236                           ;	high address of idata address in btemp 
+   237                           ;	low address of idata address in btemp+1 
+   238                           ;	low address of data in FSR
+   239                           ;	high address + 1 of data in btemp-1
+   240  0348                     init_ram:
+   241  0348  120A  118A  2344   	fcall init_fetch
+              120A  118A         
+   242  034D  0080               	movwf indf,f
+   243  034E  0A84               	incf fsr,f
+   244  034F  0804               	movf fsr,w
+   245  0350  067D               	xorwf btemp-1,w
+   246  0351  1903               	btfsc status,2
+   247  0352  3400               	retlw 0
+   248  0353  0AFF               	incf btemp+1,f
+   249  0354  1903               	btfsc status,2
+   250  0355  0AFE               	incf btemp,f
+   251  0356  2B48               	goto init_ram
+   252                           ; Initialize objects allocated to BANK0
+   253                           psect cinit,class=CODE,delta=2
+   254                           global init_ram, __pidataBANK0
+   255  0304  306B               	movlw low(__pdataBANK0+20)
+   256  0305  00FD               	movwf btemp-1,f
+   257  0306  3003               	movlw high(__pidataBANK0)
+   258  0307  00FE               	movwf btemp,f
+   259  0308  3030               	movlw low(__pidataBANK0)
+   260  0309  00FF               	movwf btemp+1,f
+   261  030A  3057               	movlw low(__pdataBANK0)
+   262  030B  0084               	movwf fsr,f
+   263  030C  120A  118A  2348   	fcall init_ram
+              120A  118A         
+   264                           psect cinit,class=CODE,delta=2
+   265                           global end_of_initialization
+   266                           
+   267                           ;End of C runtime variable initialization code
+   268                           
+   269  0311                     end_of_initialization:
+   270  0311  0183               clrf status
+   271  0312  120A  118A  2ABE   ljmp _main	;jump to C main() function
+   272                           psect	cstackCOMMON,class=COMMON,space=1
+   273                           global __pcstackCOMMON
+   274  0070                     __pcstackCOMMON:
+   275                           	global	?_init
+   276  0070                     ?_init:	; 0 bytes @ 0x0
+   277                           	global	?_show
+   278  0070                     ?_show:	; 0 bytes @ 0x0
+   279                           	global	?_ccp1
+   280  0070                     ?_ccp1:	; 0 bytes @ 0x0
+   281                           	global	??_ccp1
+   282  0070                     ??_ccp1:	; 0 bytes @ 0x0
+   283                           	global	?_main
+   284  0070                     ?_main:	; 2 bytes @ 0x0
+   285  0070                     	ds	5
+   286                           	global	?_delay
+   287  0075                     ?_delay:	; 0 bytes @ 0x5
+   288                           	global	??___almod
+   289  0075                     ??___almod:	; 0 bytes @ 0x5
+   290                           	global	??___aldiv
+   291  0075                     ??___aldiv:	; 0 bytes @ 0x5
+   292                           	global	delay@t
+   293  0075                     delay@t:	; 2 bytes @ 0x5
+   294  0075                     	ds	2
+   295                           	global	??_init
+   296  0077                     ??_init:	; 0 bytes @ 0x7
+   297                           	global	??_enable
+   298  0077                     ??_enable:	; 0 bytes @ 0x7
+   299                           	global	??_main
+   300  0077                     ??_main:	; 0 bytes @ 0x7
+   301                           psect	cstackBANK0,class=BANK0,space=1
+   302                           global __pcstackBANK0
+   303  0020                     __pcstackBANK0:
+   304                           	global	??_delay
+   305  0020                     ??_delay:	; 0 bytes @ 0x0
+   306                           	global	?___almod
+   307  0020                     ?___almod:	; 4 bytes @ 0x0
+   308                           	global	?___aldiv
+   309  0020                     ?___aldiv:	; 4 bytes @ 0x0
+   310                           	global	___almod@divisor
+   311  0020                     ___almod@divisor:	; 4 bytes @ 0x0
+   312                           	global	___aldiv@divisor
+   313  0020                     ___aldiv@divisor:	; 4 bytes @ 0x0
+   314  0020                     	ds	1
+   315                           	global	delay@i
+   316  0021                     delay@i:	; 2 bytes @ 0x1
+   317  0021                     	ds	2
+   318                           	global	?_enable
+   319  0023                     ?_enable:	; 0 bytes @ 0x3
+   320                           	global	enable@t
+   321  0023                     enable@t:	; 2 bytes @ 0x3
+   322  0023                     	ds	1
+   323                           	global	___almod@dividend
+   324  0024                     ___almod@dividend:	; 4 bytes @ 0x4
+   325                           	global	___aldiv@dividend
+   326  0024                     ___aldiv@dividend:	; 4 bytes @ 0x4
+   327  0024                     	ds	4
+   328                           	global	___almod@counter
+   329  0028                     ___almod@counter:	; 1 bytes @ 0x8
+   330                           	global	___aldiv@counter
+   331  0028                     ___aldiv@counter:	; 1 bytes @ 0x8
+   332  0028                     	ds	1
+   333                           	global	___almod@sign
+   334  0029                     ___almod@sign:	; 1 bytes @ 0x9
+   335                           	global	___aldiv@sign
+   336  0029                     ___aldiv@sign:	; 1 bytes @ 0x9
+   337  0029                     	ds	1
+   338                           	global	___aldiv@quotient
+   339  002A                     ___aldiv@quotient:	; 4 bytes @ 0xA
+   340  002A                     	ds	4
+   341                           	global	?_tostring
+   342  002E                     ?_tostring:	; 0 bytes @ 0xE
+   343                           	global	tostring@x
+   344  002E                     tostring@x:	; 4 bytes @ 0xE
+   345  002E                     	ds	4
+   346                           	global	tostring@s
+   347  0032                     tostring@s:	; 1 bytes @ 0x12
+   348  0032                     	ds	1
+   349                           	global	??_tostring
+   350  0033                     ??_tostring:	; 0 bytes @ 0x13
+   351  0033                     	ds	2
+   352                           	global	tostring@i
+   353  0035                     tostring@i:	; 2 bytes @ 0x15
+   354  0035                     	ds	2
+   355                           	global	?_show_a
+   356  0037                     ?_show_a:	; 0 bytes @ 0x17
+   357                           	global	show_a@x
+   358  0037                     show_a@x:	; 4 bytes @ 0x17
+   359  0037                     	ds	4
+   360                           	global	show_a@s
+   361  003B                     show_a@s:	; 1 bytes @ 0x1B
+   362  003B                     	ds	1
+   363                           	global	??_show_a
+   364  003C                     ??_show_a:	; 0 bytes @ 0x1C
+   365  003C                     	ds	1
+   366                           	global	show_a@i
+   367  003D                     show_a@i:	; 2 bytes @ 0x1D
+   368  003D                     	ds	2
+   369                           	global	??_show
+   370  003F                     ??_show:	; 0 bytes @ 0x1F
+   371  003F                     	ds	1
+   372 ;;Data sizes: Strings 0, constant 0, data 20, bss 24, persistent 0 stack 0
+   373 ;;Auto spaces:   Size  Autos    Used
+   374 ;; COMMON          14      7       9
+   375 ;; BANK0           80     32      75
+   376 ;; BANK1           80      0       0
+   377 ;; BANK3           96      0       0
+   378 ;; BANK2           96      0       0
+   379                           
+   380 ;;
+   381 ;; Pointer list with targets:
+   382                           
+   383 ;; ?___aldiv	long  size(1) Largest target is 0
+   384 ;;
+   385 ;; ?___almod	long  size(1) Largest target is 0
+   386 ;;
+   387 ;; show_a@s	PTR unsigned char  size(1) Largest target is 20
+   388 ;;		 -> s(BANK0[20]), 
+   389 ;;
+   390 ;; tostring@s	PTR unsigned char  size(1) Largest target is 20
+   391 ;;		 -> s(BANK0[20]), 
+   392 ;;
+   393                           
+   394                           
+   395 ;;
+   396 ;; Critical Paths under _main in COMMON
+   397 ;;
+   398 ;;   _init->_delay
+   399 ;;   _tostring->___almod
+   400 ;;   _tostring->___aldiv
+   401 ;;   _enable->_delay
+   402 ;;
+   403 ;; Critical Paths under _ccp1 in COMMON
+   404 ;;
+   405 ;;   None.
+   406 ;;
+   407 ;; Critical Paths under _main in BANK0
+   408 ;;
+   409 ;;   _main->_show
+   410 ;;   _show->_show_a
+   411 ;;   _show_a->_tostring
+   412 ;;   _init->_enable
+   413 ;;   _tostring->___aldiv
+   414 ;;   _enable->_delay
+   415 ;;
+   416 ;; Critical Paths under _ccp1 in BANK0
+   417 ;;
+   418 ;;   None.
+   419 ;;
+   420 ;; Critical Paths under _main in BANK1
+   421 ;;
+   422 ;;   None.
+   423 ;;
+   424 ;; Critical Paths under _ccp1 in BANK1
+   425 ;;
+   426 ;;   None.
+   427 ;;
+   428 ;; Critical Paths under _main in BANK3
+   429 ;;
+   430 ;;   None.
+   431 ;;
+   432 ;; Critical Paths under _ccp1 in BANK3
+   433 ;;
+   434 ;;   None.
+   435 ;;
+   436 ;; Critical Paths under _main in BANK2
+   437 ;;
+   438 ;;   None.
+   439 ;;
+   440 ;; Critical Paths under _ccp1 in BANK2
+   441 ;;
+   442 ;;   None.
+   443                           
+   444 ;;
+   445 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   446 ;;
+   447                           
+   448 ;;
+   449 ;;Call Graph Tables:
+   450 ;;
+   451 ;; ---------------------------------------------------------------------------------
+   452 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   453 ;; ---------------------------------------------------------------------------------
+   454 ;; (0) _main                                                 0     0      0    1485
+   455 ;;                               _init
+   456 ;;                               _show
+   457 ;; ---------------------------------------------------------------------------------
+   458 ;; (1) _show                                                 1     1      0    1318
+   459 ;;                                             31 BANK0      1     1      0
+   460 ;;                             _enable
+   461 ;;                             _show_a
+   462 ;; ---------------------------------------------------------------------------------
+   463 ;; (2) _show_a                                               8     3      5    1219
+   464 ;;                                             23 BANK0      8     3      5
+   465 ;;                           _tostring
+   466 ;;                             _enable
+   467 ;; ---------------------------------------------------------------------------------
+   468 ;; (1) _init                                                 0     0      0     167
+   469 ;;                              _delay
+   470 ;;                             _enable
+   471 ;; ---------------------------------------------------------------------------------
+   472 ;; (3) _tostring                                             9     4      5     928
+   473 ;;                                             14 BANK0      9     4      5
+   474 ;;                            ___almod
+   475 ;;                            ___aldiv
+   476 ;; ---------------------------------------------------------------------------------
+   477 ;; (3) _enable                                               2     0      2      99
+   478 ;;                                              3 BANK0      2     0      2
+   479 ;;                              _delay
+   480 ;; ---------------------------------------------------------------------------------
+   481 ;; (4) ___aldiv                                             15     7      8     300
+   482 ;;                                              5 COMMON     1     1      0
+   483 ;;                                              0 BANK0     14     6      8
+   484 ;; ---------------------------------------------------------------------------------
+   485 ;; (4) ___almod                                             11     3      8     433
+   486 ;;                                              5 COMMON     1     1      0
+   487 ;;                                              0 BANK0     10     2      8
+   488 ;; ---------------------------------------------------------------------------------
+   489 ;; (4) _delay                                                5     3      2      68
+   490 ;;                                              5 COMMON     2     0      2
+   491 ;;                                              0 BANK0      3     3      0
+   492 ;; ---------------------------------------------------------------------------------
+   493 ;; Estimated maximum stack depth 4
+   494 ;; ---------------------------------------------------------------------------------
+   495 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   496 ;; ---------------------------------------------------------------------------------
+   497 ;; (5) _ccp1                                                 5     5      0       0
+   498 ;;                                              0 COMMON     5     5      0
+   499 ;; ---------------------------------------------------------------------------------
+   500 ;; Estimated maximum stack depth 5
+   501 ;; ---------------------------------------------------------------------------------
+   502                           
+   503 ;; Call Graph Graphs:
+   504                           
+   505 ;; _main (ROOT)
+   506 ;;   _init
+   507 ;;     _delay
+   508 ;;     _enable
+   509 ;;       _delay
+   510 ;;   _show
+   511 ;;     _enable
+   512 ;;       _delay
+   513 ;;     _show_a
+   514 ;;       _tostring
+   515 ;;         ___almod
+   516 ;;         ___aldiv
+   517 ;;       _enable
+   518 ;;         _delay
+   519 ;;
+   520 ;; _ccp1 (ROOT)
+   521 ;;
+   522                           
+   523 ;; Address spaces:
+   524                           
+   525 ;;Name               Size   Autos  Total    Cost      Usage
+   526 ;;BANK3               60      0       0       9        0.0%
+   527 ;;BITBANK3            60      0       0       8        0.0%
+   528 ;;SFR3                 0      0       0       4        0.0%
+   529 ;;BITSFR3              0      0       0       4        0.0%
+   530 ;;BANK2               60      0       0      11        0.0%
+   531 ;;BITBANK2            60      0       0      10        0.0%
+   532 ;;SFR2                 0      0       0       5        0.0%
+   533 ;;BITSFR2              0      0       0       5        0.0%
+   534 ;;SFR1                 0      0       0       2        0.0%
+   535 ;;BITSFR1              0      0       0       2        0.0%
+   536 ;;BANK1               50      0       0       7        0.0%
+   537 ;;BITBANK1            50      0       0       6        0.0%
+   538 ;;CODE                 0      0       0       0        0.0%
+   539 ;;DATA                 0      0      58      12        0.0%
+   540 ;;ABS                  0      0      54       3        0.0%
+   541 ;;NULL                 0      0       0       0        0.0%
+   542 ;;STACK                0      0       4       2        0.0%
+   543 ;;BANK0               50     20      4B       5       93.8%
+   544 ;;BITBANK0            50      0       0       4        0.0%
+   545 ;;SFR0                 0      0       0       1        0.0%
+   546 ;;BITSFR0              0      0       0       1        0.0%
+   547 ;;COMMON               E      7       9       1       64.3%
+   548 ;;BITCOMMON            E      0       1       0        7.1%
+   549 ;;EEDATA             100      0       0       0        0.0%
+   550                           
+   551                           	global	_main
+   552                           psect	maintext,global,class=CODE,delta=2
+   553                           global __pmaintext
+   554  02BE                     __pmaintext:
+   555                           
+   556 ;; *************** function _main *****************
+   557 ;; Defined at:
+   558 ;;		line 55 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+   559 ;; Parameters:    Size  Location     Type
+   560 ;;		None
+   561 ;; Auto vars:     Size  Location     Type
+   562 ;;		None
+   563 ;; Return value:  Size  Location     Type
+   564 ;;                  2  717[COMMON] int 
+   565 ;; Registers used:
+   566 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   567 ;; Tracked objects:
+   568 ;;		On entry : 17F/0
+   569 ;;		On exit  : 0/0
+   570 ;;		Unchanged: 0/0
+   571 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   572 ;;      Params:         0       0       0       0       0
+   573 ;;      Locals:         0       0       0       0       0
+   574 ;;      Temps:          0       0       0       0       0
+   575 ;;      Totals:         0       0       0       0       0
+   576 ;;Total ram usage:        0 bytes
+   577 ;; Hardware stack levels required when called:    5
+   578 ;; This function calls:
+   579 ;;		_init
+   580 ;;		_show
+   581 ;; This function is called by:
+   582 ;;		Startup code after reset
+   583 ;; This function uses a non-reentrant model
+   584 ;;
+   585                           psect	maintext
+   586                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+   587                           	line	55
+   588                           	global	__size_of_main
+   589  001E                     	__size_of_main	equ	__end_of_main-_main
+   590                           	
+   591  02BE                     _main:	
+   592                           	opt	stack 3
+   593                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   594                           	line	57
+   595                           	
+   596  02BE                     l3150:	
+   597                           ;Receiver.c: 57: init ();
+   598  02BE  120A  118A  225E   	fcall	_init
+              120A  118A         
+   599                           	line	58
+   600                           	
+   601  02C3                     l3152:	
+   602                           ;Receiver.c: 58: show();
+   603  02C3  120A  118A  229D   	fcall	_show
+              120A  118A         
+   604                           	line	59
+   605                           	
+   606  02C8                     l3154:	
+   607                           ;Receiver.c: 59: TMR1ON=1;
+   608  02C8  1283               	bcf	status, 5	;RP0=0, select bank0
+   609  02C9  1303               	bcf	status, 6	;RP1=0, select bank0
+   610  02CA  1410               	bsf	(128/8),(128)&7
+   611  02CB  2ACC               	goto	l3156
+   612                           	line	60
+   613                           ;Receiver.c: 60: while(1){
+   614                           	
+   615  02CC                     l718:	
+   616                           	line	61
+   617                           	
+   618  02CC                     l3156:	
+   619                           ;Receiver.c: 61: if(showflag){
+   620  02CC  1CF7               	btfss	(_showflag/8),(_showflag)&7
+   621  02CD  2ACF               	goto	u2871
+   622  02CE  2AD0               	goto	u2870
+   623  02CF                     u2871:
+   624  02CF  2ACC               	goto	l3156
+   625  02D0                     u2870:
+   626                           	line	62
+   627                           	
+   628  02D0                     l3158:	
+   629                           ;Receiver.c: 62: showflag=0;
+   630  02D0  10F7               	bcf	(_showflag/8),(_showflag)&7
+   631                           	line	63
+   632                           	
+   633  02D1                     l3160:	
+   634                           ;Receiver.c: 63: show();
+   635  02D1  120A  118A  229D   	fcall	_show
+              120A  118A         
+   636  02D6  2ACC               	goto	l3156
+   637                           	line	64
+   638                           	
+   639  02D7                     l719:	
+   640  02D7  2ACC               	goto	l3156
+   641                           	line	65
+   642                           	
+   643  02D8                     l720:	
+   644                           	line	60
+   645  02D8  2ACC               	goto	l3156
+   646                           	
+   647  02D9                     l721:	
+   648                           	line	66
+   649                           	
+   650  02D9                     l722:	
+   651                           	global	start
+   652  02D9  120A  118A  2812   	ljmp	start
+   653                           	opt stack 0
+   654                           GLOBAL	__end_of_main
+   655  02DC                     	__end_of_main:
+   656 ;; =============== function _main ends ============
+   657                           
+   658                           	signat	_main,90
+   659                           	global	_show
+   660                           psect	text372,local,class=CODE,delta=2
+   661                           global __ptext372
+   662  029D                     __ptext372:
+   663                           
+   664 ;; *************** function _show *****************
+   665 ;; Defined at:
+   666 ;;		line 124 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+   667 ;; Parameters:    Size  Location     Type
+   668 ;;		None
+   669 ;; Auto vars:     Size  Location     Type
+   670 ;;		None
+   671 ;; Return value:  Size  Location     Type
+   672 ;;		None               void
+   673 ;; Registers used:
+   674 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   675 ;; Tracked objects:
+   676 ;;		On entry : 0/0
+   677 ;;		On exit  : 0/0
+   678 ;;		Unchanged: 0/0
+   679 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   680 ;;      Params:         0       0       0       0       0
+   681 ;;      Locals:         0       0       0       0       0
+   682 ;;      Temps:          0       1       0       0       0
+   683 ;;      Totals:         0       1       0       0       0
+   684 ;;Total ram usage:        1 bytes
+   685 ;; Hardware stack levels used:    1
+   686 ;; Hardware stack levels required when called:    4
+   687 ;; This function calls:
+   688 ;;		_enable
+   689 ;;		_show_a
+   690 ;; This function is called by:
+   691 ;;		_main
+   692 ;; This function uses a non-reentrant model
+   693 ;;
+   694                           psect	text372
+   695                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+   696                           	line	124
+   697                           	global	__size_of_show
+   698  0021                     	__size_of_show	equ	__end_of_show-_show
+   699                           	
+   700  029D                     _show:	
+   701                           	opt	stack 3
+   702                           ; Regs used in _show: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   703                           	line	125
+   704                           	
+   705  029D                     l3144:	
+   706                           ;Receiver.c: 125: PORTD=0x80;
+   707  029D  3080               	movlw	(080h)
+   708  029E  1283               	bcf	status, 5	;RP0=0, select bank0
+   709  029F  1303               	bcf	status, 6	;RP1=0, select bank0
+   710  02A0  0088               	movwf	(8)	;volatile
+   711                           	line	126
+   712                           	
+   713  02A1                     l3146:	
+   714                           ;Receiver.c: 126: enable (INS);
+   715  02A1  3000               	movlw	low(0)
+   716  02A2  00A3               	movwf	(?_enable)
+   717  02A3  3000               	movlw	high(0)
+   718  02A4  00A4               	movwf	((?_enable))+1
+   719  02A5  120A  118A  2315   	fcall	_enable
+              120A  118A         
+   720                           	line	127
+   721                           	
+   722  02AA                     l3148:	
+   723                           ;Receiver.c: 127: show_a(showdata,s);
+   724  02AA  1283               	bcf	status, 5	;RP0=0, select bank0
+   725  02AB  1303               	bcf	status, 6	;RP1=0, select bank0
+   726  02AC  0856               	movf	(_showdata+3),w
+   727  02AD  00BA               	movwf	(?_show_a+3)
+   728  02AE  0855               	movf	(_showdata+2),w
+   729  02AF  00B9               	movwf	(?_show_a+2)
+   730  02B0  0854               	movf	(_showdata+1),w
+   731  02B1  00B8               	movwf	(?_show_a+1)
+   732  02B2  0853               	movf	(_showdata),w
+   733  02B3  00B7               	movwf	(?_show_a)
+   734                           
+   735  02B4  3057               	movlw	(_s)&0ffh
+   736  02B5  00BF               	movwf	(??_show+0)+0
+   737  02B6  083F               	movf	(??_show+0)+0,w
+   738  02B7  00BB               	movwf	(0+?_show_a+04h)
+   739  02B8  120A  118A  220D   	fcall	_show_a
+              120A  118A         
+   740                           	line	128
+   741                           	
+   742  02BD                     l747:	
+   743  02BD  0008               	return
+   744                           	opt stack 0
+   745                           GLOBAL	__end_of_show
+   746  02BE                     	__end_of_show:
+   747 ;; =============== function _show ends ============
+   748                           
+   749                           	signat	_show,88
+   750                           	global	_show_a
+   751                           psect	text373,local,class=CODE,delta=2
+   752                           global __ptext373
+   753  020D                     __ptext373:
+   754                           
+   755 ;; *************** function _show_a *****************
+   756 ;; Defined at:
+   757 ;;		line 116 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+   758 ;; Parameters:    Size  Location     Type
+   759 ;;  x               4   23[BANK0 ] long 
+   760 ;;  s               1   27[BANK0 ] PTR unsigned char 
+   761 ;;		 -> s(20), 
+   762 ;; Auto vars:     Size  Location     Type
+   763 ;;  i               2   29[BANK0 ] int 
+   764 ;; Return value:  Size  Location     Type
+   765 ;;		None               void
+   766 ;; Registers used:
+   767 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   768 ;; Tracked objects:
+   769 ;;		On entry : 0/0
+   770 ;;		On exit  : 0/0
+   771 ;;		Unchanged: 0/0
+   772 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   773 ;;      Params:         0       5       0       0       0
+   774 ;;      Locals:         0       2       0       0       0
+   775 ;;      Temps:          0       1       0       0       0
+   776 ;;      Totals:         0       8       0       0       0
+   777 ;;Total ram usage:        8 bytes
+   778 ;; Hardware stack levels used:    1
+   779 ;; Hardware stack levels required when called:    3
+   780 ;; This function calls:
+   781 ;;		_tostring
+   782 ;;		_enable
+   783 ;; This function is called by:
+   784 ;;		_show
+   785 ;; This function uses a non-reentrant model
+   786 ;;
+   787                           psect	text373
+   788                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+   789                           	line	116
+   790                           	global	__size_of_show_a
+   791  0051                     	__size_of_show_a	equ	__end_of_show_a-_show_a
+   792                           	
+   793  020D                     _show_a:	
+   794                           	opt	stack 3
+   795                           ; Regs used in _show_a: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   796                           	line	117
+   797                           	
+   798  020D                     l3128:	
+   799                           ;Receiver.c: 117: tostring(x,s);
+   800  020D  1283               	bcf	status, 5	;RP0=0, select bank0
+   801  020E  1303               	bcf	status, 6	;RP1=0, select bank0
+   802  020F  083A               	movf	(show_a@x+3),w
+   803  0210  00B1               	movwf	(?_tostring+3)
+   804  0211  0839               	movf	(show_a@x+2),w
+   805  0212  00B0               	movwf	(?_tostring+2)
+   806  0213  0838               	movf	(show_a@x+1),w
+   807  0214  00AF               	movwf	(?_tostring+1)
+   808  0215  0837               	movf	(show_a@x),w
+   809  0216  00AE               	movwf	(?_tostring)
+   810                           
+   811  0217  083B               	movf	(show_a@s),w
+   812  0218  00BC               	movwf	(??_show_a+0)+0
+   813  0219  083C               	movf	(??_show_a+0)+0,w
+   814  021A  00B2               	movwf	(0+?_tostring+04h)
+   815  021B  120A  118A  21B5   	fcall	_tostring
+              120A  118A         
+   816                           	line	118
+   817                           	
+   818  0220                     l3130:	
+   819                           ;Receiver.c: 118: for(int i=0;i<=6;++i){
+   820  0220  1283               	bcf	status, 5	;RP0=0, select bank0
+   821  0221  1303               	bcf	status, 6	;RP1=0, select bank0
+   822  0222  01BD               	clrf	(show_a@i)
+   823  0223  01BE               	clrf	(show_a@i+1)
+   824                           	
+   825  0224                     l3132:	
+   826  0224  083E               	movf	(show_a@i+1),w
+   827  0225  3A80               	xorlw	80h
+   828  0226  00FF               	movwf	btemp+1
+   829  0227  3080               	movlw	(high(07h))^80h
+   830  0228  027F               	subwf	btemp+1,w
+   831  0229  1D03               	skipz
+   832  022A  2A2D               	goto	u2855
+   833  022B  3007               	movlw	low(07h)
+   834  022C  023D               	subwf	(show_a@i),w
+   835  022D                     u2855:
+   836                           
+   837  022D  1C03               	skipc
+   838  022E  2A30               	goto	u2851
+   839  022F  2A31               	goto	u2850
+   840  0230                     u2851:
+   841  0230  2A33               	goto	l3136
+   842  0231                     u2850:
+   843  0231  2A5D               	goto	l744
+   844                           	
+   845  0232                     l3134:	
+   846  0232  2A5D               	goto	l744
+   847                           	
+   848  0233                     l742:	
+   849                           	line	119
+   850                           	
+   851  0233                     l3136:	
+   852                           ;Receiver.c: 119: PORTD=s[i]+'0';
+   853  0233  1283               	bcf	status, 5	;RP0=0, select bank0
+   854  0234  1303               	bcf	status, 6	;RP1=0, select bank0
+   855  0235  083D               	movf	(show_a@i),w
+   856  0236  073B               	addwf	(show_a@s),w
+   857  0237  00BC               	movwf	(??_show_a+0)+0
+   858  0238  083C               	movf	0+(??_show_a+0)+0,w
+   859  0239  0084               	movwf	fsr0
+   860  023A  1383               	bcf	status, 7	;select IRP bank0
+   861  023B  0800               	movf	indf,w
+   862  023C  3E30               	addlw	030h
+   863  023D  0088               	movwf	(8)	;volatile
+   864                           	line	120
+   865                           	
+   866  023E                     l3138:	
+   867                           ;Receiver.c: 120: enable(DATA);
+   868  023E  3001               	movlw	low(01h)
+   869  023F  00A3               	movwf	(?_enable)
+   870  0240  3000               	movlw	high(01h)
+   871  0241  00A4               	movwf	((?_enable))+1
+   872  0242  120A  118A  2315   	fcall	_enable
+              120A  118A         
+   873                           	line	118
+   874                           	
+   875  0247                     l3140:	
+   876  0247  3001               	movlw	low(01h)
+   877  0248  1283               	bcf	status, 5	;RP0=0, select bank0
+   878  0249  1303               	bcf	status, 6	;RP1=0, select bank0
+   879  024A  07BD               	addwf	(show_a@i),f
+   880  024B  1803               	skipnc
+   881  024C  0ABE               	incf	(show_a@i+1),f
+   882  024D  3000               	movlw	high(01h)
+   883  024E  07BE               	addwf	(show_a@i+1),f
+   884                           	
+   885  024F                     l3142:	
+   886  024F  083E               	movf	(show_a@i+1),w
+   887  0250  3A80               	xorlw	80h
+   888  0251  00FF               	movwf	btemp+1
+   889  0252  3080               	movlw	(high(07h))^80h
+   890  0253  027F               	subwf	btemp+1,w
+   891  0254  1D03               	skipz
+   892  0255  2A58               	goto	u2865
+   893  0256  3007               	movlw	low(07h)
+   894  0257  023D               	subwf	(show_a@i),w
+   895  0258                     u2865:
+   896                           
+   897  0258  1C03               	skipc
+   898  0259  2A5B               	goto	u2861
+   899  025A  2A5C               	goto	u2860
+   900  025B                     u2861:
+   901  025B  2A33               	goto	l3136
+   902  025C                     u2860:
+   903  025C  2A5D               	goto	l744
+   904                           	
+   905  025D                     l743:	
+   906                           	line	122
+   907                           	
+   908  025D                     l744:	
+   909  025D  0008               	return
+   910                           	opt stack 0
+   911                           GLOBAL	__end_of_show_a
+   912  025E                     	__end_of_show_a:
+   913 ;; =============== function _show_a ends ============
+   914                           
+   915                           	signat	_show_a,8312
+   916                           	global	_init
+   917                           psect	text374,local,class=CODE,delta=2
+   918                           global __ptext374
+   919  025E                     __ptext374:
+   920                           
+   921 ;; *************** function _init *****************
+   922 ;; Defined at:
+   923 ;;		line 69 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+   924 ;; Parameters:    Size  Location     Type
+   925 ;;		None
+   926 ;; Auto vars:     Size  Location     Type
+   927 ;;		None
+   928 ;; Return value:  Size  Location     Type
+   929 ;;		None               void
+   930 ;; Registers used:
+   931 ;;		wreg, status,2, status,0, pclath, cstack
+   932 ;; Tracked objects:
+   933 ;;		On entry : 0/0
+   934 ;;		On exit  : 0/0
+   935 ;;		Unchanged: 0/0
+   936 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   937 ;;      Params:         0       0       0       0       0
+   938 ;;      Locals:         0       0       0       0       0
+   939 ;;      Temps:          0       0       0       0       0
+   940 ;;      Totals:         0       0       0       0       0
+   941 ;;Total ram usage:        0 bytes
+   942 ;; Hardware stack levels used:    1
+   943 ;; Hardware stack levels required when called:    3
+   944 ;; This function calls:
+   945 ;;		_delay
+   946 ;;		_enable
+   947 ;; This function is called by:
+   948 ;;		_main
+   949 ;; This function uses a non-reentrant model
+   950 ;;
+   951                           psect	text374
+   952                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+   953                           	line	69
+   954                           	global	__size_of_init
+   955  003F                     	__size_of_init	equ	__end_of_init-_init
+   956                           	
+   957  025E                     _init:	
+   958                           	opt	stack 4
+   959                           ; Regs used in _init: [wreg+status,2+status,0+pclath+cstack]
+   960                           	line	70
+   961                           	
+   962  025E                     l3090:	
+   963                           ;Receiver.c: 70: TRISD=0;
+   964  025E  1683               	bsf	status, 5	;RP0=1, select bank1
+   965  025F  1303               	bcf	status, 6	;RP1=0, select bank1
+   966  0260  0188               	clrf	(136)^080h	;volatile
+   967                           	line	71
+   968                           ;Receiver.c: 71: TRISA=0;
+   969  0261  0185               	clrf	(133)^080h	;volatile
+   970                           	line	72
+   971                           	
+   972  0262                     l3092:	
+   973                           ;Receiver.c: 72: TRISC2=1;
+   974  0262  1507               	bsf	(1082/8)^080h,(1082)&7
+   975                           	line	73
+   976                           	
+   977  0263                     l3094:	
+   978                           ;Receiver.c: 73: TRISC7=0;
+   979  0263  1387               	bcf	(1087/8)^080h,(1087)&7
+   980                           	line	74
+   981                           ;Receiver.c: 74: TRISB=0x0;
+   982  0264  0186               	clrf	(134)^080h	;volatile
+   983                           	line	75
+   984                           	
+   985  0265                     l3096:	
+   986                           ;Receiver.c: 75: ADCON1=7;
+   987  0265  3007               	movlw	(07h)
+   988  0266  009F               	movwf	(159)^080h	;volatile
+   989                           	line	77
+   990                           	
+   991  0267                     l3098:	
+   992                           ;Receiver.c: 77: PORTD=0;
+   993  0267  1283               	bcf	status, 5	;RP0=0, select bank0
+   994  0268  1303               	bcf	status, 6	;RP1=0, select bank0
+   995  0269  0188               	clrf	(8)	;volatile
+   996                           	line	78
+   997                           	
+   998  026A                     l3100:	
+   999                           ;Receiver.c: 78: RC7=0;
+  1000  026A  1387               	bcf	(63/8),(63)&7
+  1001                           	line	79
+  1002                           	
+  1003  026B                     l3102:	
+  1004                           ;Receiver.c: 79: RA3=1;
+  1005  026B  1585               	bsf	(43/8),(43)&7
+  1006                           	line	81
+  1007                           	
+  1008  026C                     l3104:	
+  1009                           ;Receiver.c: 81: delay(1000);
+  1010  026C  30E8               	movlw	low(03E8h)
+  1011  026D  00F5               	movwf	(?_delay)
+  1012  026E  3003               	movlw	high(03E8h)
+  1013  026F  00F6               	movwf	((?_delay))+1
+  1014  0270  120A  118A  22DC   	fcall	_delay
+              120A  118A         
+  1015                           	line	82
+  1016                           	
+  1017  0275                     l3106:	
+  1018                           ;Receiver.c: 82: PORTD=0x38;enable (INS);
+  1019  0275  3038               	movlw	(038h)
+  1020  0276  1283               	bcf	status, 5	;RP0=0, select bank0
+  1021  0277  1303               	bcf	status, 6	;RP1=0, select bank0
+  1022  0278  0088               	movwf	(8)	;volatile
+  1023  0279  3000               	movlw	low(0)
+  1024  027A  00A3               	movwf	(?_enable)
+  1025  027B  3000               	movlw	high(0)
+  1026  027C  00A4               	movwf	((?_enable))+1
+  1027  027D  120A  118A  2315   	fcall	_enable
+              120A  118A         
+  1028                           	line	83
+  1029                           	
+  1030  0282                     l3108:	
+  1031                           ;Receiver.c: 83: PORTD=0x0c;enable (INS);
+  1032  0282  300C               	movlw	(0Ch)
+  1033  0283  1283               	bcf	status, 5	;RP0=0, select bank0
+  1034  0284  1303               	bcf	status, 6	;RP1=0, select bank0
+  1035  0285  0088               	movwf	(8)	;volatile
+  1036                           	
+  1037  0286                     l3110:	
+  1038  0286  3000               	movlw	low(0)
+  1039  0287  00A3               	movwf	(?_enable)
+  1040  0288  3000               	movlw	high(0)
+  1041  0289  00A4               	movwf	((?_enable))+1
+  1042  028A  120A  118A  2315   	fcall	_enable
+              120A  118A         
+  1043                           	line	85
+  1044                           	
+  1045  028F                     l3112:	
+  1046                           ;Receiver.c: 85: showflag=0;
+  1047  028F  10F7               	bcf	(_showflag/8),(_showflag)&7
+  1048                           	line	87
+  1049                           	
+  1050  0290                     l3114:	
+  1051                           ;Receiver.c: 87: GIE=1; PEIE=1;CCP1IE=1;CCP1IF=0;
+  1052  0290  178B               	bsf	(95/8),(95)&7
+  1053                           	
+  1054  0291                     l3116:	
+  1055  0291  170B               	bsf	(94/8),(94)&7
+  1056                           	
+  1057  0292                     l3118:	
+  1058  0292  1683               	bsf	status, 5	;RP0=1, select bank1
+  1059  0293  1303               	bcf	status, 6	;RP1=0, select bank1
+  1060  0294  150C               	bsf	(1122/8)^080h,(1122)&7
+  1061                           	
+  1062  0295                     l3120:	
+  1063  0295  1283               	bcf	status, 5	;RP0=0, select bank0
+  1064  0296  1303               	bcf	status, 6	;RP1=0, select bank0
+  1065  0297  110C               	bcf	(98/8),(98)&7
+  1066                           	line	88
+  1067                           	
+  1068  0298                     l3122:	
+  1069                           ;Receiver.c: 88: TMR1IF=0;
+  1070  0298  100C               	bcf	(96/8),(96)&7
+  1071                           	line	89
+  1072                           	
+  1073  0299                     l3124:	
+  1074                           ;Receiver.c: 89: T1CON=0B00000000;
+  1075  0299  0190               	clrf	(16)	;volatile
+  1076                           	line	90
+  1077                           	
+  1078  029A                     l3126:	
+  1079                           ;Receiver.c: 90: CCP1CON=4;
+  1080  029A  3004               	movlw	(04h)
+  1081  029B  0097               	movwf	(23)	;volatile
+  1082                           	line	91
+  1083                           	
+  1084  029C                     l725:	
+  1085  029C  0008               	return
+  1086                           	opt stack 0
+  1087                           GLOBAL	__end_of_init
+  1088  029D                     	__end_of_init:
+  1089 ;; =============== function _init ends ============
+  1090                           
+  1091                           	signat	_init,88
+  1092                           	global	_tostring
+  1093                           psect	text375,local,class=CODE,delta=2
+  1094                           global __ptext375
+  1095  01B5                     __ptext375:
+  1096                           
+  1097 ;; *************** function _tostring *****************
+  1098 ;; Defined at:
+  1099 ;;		line 108 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+  1100 ;; Parameters:    Size  Location     Type
+  1101 ;;  x               4   14[BANK0 ] long 
+  1102 ;;  s               1   18[BANK0 ] PTR unsigned char 
+  1103 ;;		 -> s(20), 
+  1104 ;; Auto vars:     Size  Location     Type
+  1105 ;;  i               2   21[BANK0 ] int 
+  1106 ;; Return value:  Size  Location     Type
+  1107 ;;		None               void
+  1108 ;; Registers used:
+  1109 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1110 ;; Tracked objects:
+  1111 ;;		On entry : 0/0
+  1112 ;;		On exit  : 0/0
+  1113 ;;		Unchanged: 0/0
+  1114 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1115 ;;      Params:         0       5       0       0       0
+  1116 ;;      Locals:         0       2       0       0       0
+  1117 ;;      Temps:          0       2       0       0       0
+  1118 ;;      Totals:         0       9       0       0       0
+  1119 ;;Total ram usage:        9 bytes
+  1120 ;; Hardware stack levels used:    1
+  1121 ;; Hardware stack levels required when called:    2
+  1122 ;; This function calls:
+  1123 ;;		___almod
+  1124 ;;		___aldiv
+  1125 ;; This function is called by:
+  1126 ;;		_show_a
+  1127 ;; This function uses a non-reentrant model
+  1128 ;;
+  1129                           psect	text375
+  1130                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+  1131                           	line	108
+  1132                           	global	__size_of_tostring
+  1133  0058                     	__size_of_tostring	equ	__end_of_tostring-_tostring
+  1134                           	
+  1135  01B5                     _tostring:	
+  1136                           	opt	stack 3
+  1137                           ; Regs used in _tostring: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1138                           	line	109
+  1139                           	
+  1140  01B5                     l3076:	
+  1141                           ;Receiver.c: 109: for(int i=6;i>=0;--i){
+  1142  01B5  3006               	movlw	low(06h)
+  1143  01B6  1283               	bcf	status, 5	;RP0=0, select bank0
+  1144  01B7  1303               	bcf	status, 6	;RP1=0, select bank0
+  1145  01B8  00B5               	movwf	(tostring@i)
+  1146  01B9  3000               	movlw	high(06h)
+  1147  01BA  00B6               	movwf	((tostring@i))+1
+  1148                           	
+  1149  01BB                     l3078:	
+  1150  01BB  1FB6               	btfss	(tostring@i+1),7
+  1151  01BC  29BE               	goto	u2831
+  1152  01BD  29BF               	goto	u2830
+  1153  01BE                     u2831:
+  1154  01BE  29C1               	goto	l3082
+  1155  01BF                     u2830:
+  1156  01BF  2A0C               	goto	l739
+  1157                           	
+  1158  01C0                     l3080:	
+  1159  01C0  2A0C               	goto	l739
+  1160                           	
+  1161  01C1                     l737:	
+  1162                           	line	110
+  1163                           	
+  1164  01C1                     l3082:	
+  1165                           ;Receiver.c: 110: s[i]=x%10;
+  1166  01C1  3000               	movlw	0
+  1167  01C2  00A3               	movwf	(?___almod+3)
+  1168  01C3  3000               	movlw	0
+  1169  01C4  00A2               	movwf	(?___almod+2)
+  1170  01C5  3000               	movlw	0
+  1171  01C6  00A1               	movwf	(?___almod+1)
+  1172  01C7  300A               	movlw	0Ah
+  1173  01C8  00A0               	movwf	(?___almod)
+  1174                           
+  1175  01C9  0831               	movf	(tostring@x+3),w
+  1176  01CA  00A7               	movwf	3+(?___almod)+04h
+  1177  01CB  0830               	movf	(tostring@x+2),w
+  1178  01CC  00A6               	movwf	2+(?___almod)+04h
+  1179  01CD  082F               	movf	(tostring@x+1),w
+  1180  01CE  00A5               	movwf	1+(?___almod)+04h
+  1181  01CF  082E               	movf	(tostring@x),w
+  1182  01D0  00A4               	movwf	0+(?___almod)+04h
+  1183                           
+  1184  01D1  120A  118A  20BD   	fcall	___almod
+              120A  118A         
+  1185  01D6  1283               	bcf	status, 5	;RP0=0, select bank0
+  1186  01D7  1303               	bcf	status, 6	;RP1=0, select bank0
+  1187  01D8  0820               	movf	0+(((0+(?___almod)))),w
+  1188  01D9  00B3               	movwf	(??_tostring+0)+0
+  1189  01DA  0835               	movf	(tostring@i),w
+  1190  01DB  0732               	addwf	(tostring@s),w
+  1191  01DC  00B4               	movwf	(??_tostring+1)+0
+  1192  01DD  0834               	movf	0+(??_tostring+1)+0,w
+  1193  01DE  0084               	movwf	fsr0
+  1194  01DF  0833               	movf	(??_tostring+0)+0,w
+  1195  01E0  1383               	bcf	status, 7	;select IRP bank0
+  1196  01E1  0080               	movwf	indf
+  1197                           	line	111
+  1198                           	
+  1199  01E2                     l3084:	
+  1200                           ;Receiver.c: 111: x/=10;
+  1201  01E2  3000               	movlw	0
+  1202  01E3  00A3               	movwf	(?___aldiv+3)
+  1203  01E4  3000               	movlw	0
+  1204  01E5  00A2               	movwf	(?___aldiv+2)
+  1205  01E6  3000               	movlw	0
+  1206  01E7  00A1               	movwf	(?___aldiv+1)
+  1207  01E8  300A               	movlw	0Ah
+  1208  01E9  00A0               	movwf	(?___aldiv)
+  1209                           
+  1210  01EA  0831               	movf	(tostring@x+3),w
+  1211  01EB  00A7               	movwf	3+(?___aldiv)+04h
+  1212  01EC  0830               	movf	(tostring@x+2),w
+  1213  01ED  00A6               	movwf	2+(?___aldiv)+04h
+  1214  01EE  082F               	movf	(tostring@x+1),w
+  1215  01EF  00A5               	movwf	1+(?___aldiv)+04h
+  1216  01F0  082E               	movf	(tostring@x),w
+  1217  01F1  00A4               	movwf	0+(?___aldiv)+04h
+  1218                           
+  1219  01F2  120A  118A  2015   	fcall	___aldiv
+              120A  118A         
+  1220  01F7  1283               	bcf	status, 5	;RP0=0, select bank0
+  1221  01F8  1303               	bcf	status, 6	;RP1=0, select bank0
+  1222  01F9  0823               	movf	(3+(?___aldiv)),w
+  1223  01FA  00B1               	movwf	(tostring@x+3)
+  1224  01FB  0822               	movf	(2+(?___aldiv)),w
+  1225  01FC  00B0               	movwf	(tostring@x+2)
+  1226  01FD  0821               	movf	(1+(?___aldiv)),w
+  1227  01FE  00AF               	movwf	(tostring@x+1)
+  1228  01FF  0820               	movf	(0+(?___aldiv)),w
+  1229  0200  00AE               	movwf	(tostring@x)
+  1230                           
+  1231                           	line	109
+  1232                           	
+  1233  0201                     l3086:	
+  1234  0201  30FF               	movlw	low(-1)
+  1235  0202  07B5               	addwf	(tostring@i),f
+  1236  0203  1803               	skipnc
+  1237  0204  0AB6               	incf	(tostring@i+1),f
+  1238  0205  30FF               	movlw	high(-1)
+  1239  0206  07B6               	addwf	(tostring@i+1),f
+  1240                           	
+  1241  0207                     l3088:	
+  1242  0207  1FB6               	btfss	(tostring@i+1),7
+  1243  0208  2A0A               	goto	u2841
+  1244  0209  2A0B               	goto	u2840
+  1245  020A                     u2841:
+  1246  020A  29C1               	goto	l3082
+  1247  020B                     u2840:
+  1248  020B  2A0C               	goto	l739
+  1249                           	
+  1250  020C                     l738:	
+  1251                           	line	113
+  1252                           	
+  1253  020C                     l739:	
+  1254  020C  0008               	return
+  1255                           	opt stack 0
+  1256                           GLOBAL	__end_of_tostring
+  1257  020D                     	__end_of_tostring:
+  1258 ;; =============== function _tostring ends ============
+  1259                           
+  1260                           	signat	_tostring,8312
+  1261                           	global	_enable
+  1262                           psect	text376,local,class=CODE,delta=2
+  1263                           global __ptext376
+  1264  0315                     __ptext376:
+  1265                           
+  1266 ;; *************** function _enable *****************
+  1267 ;; Defined at:
+  1268 ;;		line 100 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+  1269 ;; Parameters:    Size  Location     Type
+  1270 ;;  t               2    3[BANK0 ] int 
+  1271 ;; Auto vars:     Size  Location     Type
+  1272 ;;		None
+  1273 ;; Return value:  Size  Location     Type
+  1274 ;;		None               void
+  1275 ;; Registers used:
+  1276 ;;		wreg, status,2, status,0, pclath, cstack
+  1277 ;; Tracked objects:
+  1278 ;;		On entry : 0/0
+  1279 ;;		On exit  : 0/0
+  1280 ;;		Unchanged: 0/0
+  1281 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1282 ;;      Params:         0       2       0       0       0
+  1283 ;;      Locals:         0       0       0       0       0
+  1284 ;;      Temps:          0       0       0       0       0
+  1285 ;;      Totals:         0       2       0       0       0
+  1286 ;;Total ram usage:        2 bytes
+  1287 ;; Hardware stack levels used:    1
+  1288 ;; Hardware stack levels required when called:    2
+  1289 ;; This function calls:
+  1290 ;;		_delay
+  1291 ;; This function is called by:
+  1292 ;;		_init
+  1293 ;;		_show_a
+  1294 ;;		_show
+  1295 ;; This function uses a non-reentrant model
+  1296 ;;
+  1297                           psect	text376
+  1298                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+  1299                           	line	100
+  1300                           	global	__size_of_enable
+  1301  001B                     	__size_of_enable	equ	__end_of_enable-_enable
+  1302                           	
+  1303  0315                     _enable:	
+  1304                           	opt	stack 3
+  1305                           ; Regs used in _enable: [wreg+status,2+status,0+pclath+cstack]
+  1306                           	line	101
+  1307                           	
+  1308  0315                     l3070:	
+  1309                           ;Receiver.c: 101: RA5=t;
+  1310  0315  1283               	bcf	status, 5	;RP0=0, select bank0
+  1311  0316  1303               	bcf	status, 6	;RP1=0, select bank0
+  1312  0317  1823               	btfsc	(enable@t),0
+  1313  0318  2B1A               	goto	u2811
+  1314  0319  2B1E               	goto	u2810
+  1315                           	
+  1316  031A                     u2811:
+  1317  031A  1283               	bcf	status, 5	;RP0=0, select bank0
+  1318  031B  1303               	bcf	status, 6	;RP1=0, select bank0
+  1319  031C  1685               	bsf	(45/8),(45)&7
+  1320  031D  2B21               	goto	u2824
+  1321  031E                     u2810:
+  1322  031E  1283               	bcf	status, 5	;RP0=0, select bank0
+  1323  031F  1303               	bcf	status, 6	;RP1=0, select bank0
+  1324  0320  1285               	bcf	(45/8),(45)&7
+  1325  0321                     u2824:
+  1326                           	line	102
+  1327                           ;Receiver.c: 102: RA4=0;
+  1328  0321  1205               	bcf	(44/8),(44)&7
+  1329                           	line	103
+  1330                           ;Receiver.c: 103: RA3=0;
+  1331  0322  1185               	bcf	(43/8),(43)&7
+  1332                           	line	104
+  1333                           	
+  1334  0323                     l3072:	
+  1335                           ;Receiver.c: 104: delay(30);
+  1336  0323  301E               	movlw	low(01Eh)
+  1337  0324  00F5               	movwf	(?_delay)
+  1338  0325  3000               	movlw	high(01Eh)
+  1339  0326  00F6               	movwf	((?_delay))+1
+  1340  0327  120A  118A  22DC   	fcall	_delay
+              120A  118A         
+  1341                           	line	105
+  1342                           	
+  1343  032C                     l3074:	
+  1344                           ;Receiver.c: 105: RA3=1;
+  1345  032C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1346  032D  1303               	bcf	status, 6	;RP1=0, select bank0
+  1347  032E  1585               	bsf	(43/8),(43)&7
+  1348                           	line	106
+  1349                           	
+  1350  032F                     l734:	
+  1351  032F  0008               	return
+  1352                           	opt stack 0
+  1353                           GLOBAL	__end_of_enable
+  1354  0330                     	__end_of_enable:
+  1355 ;; =============== function _enable ends ============
+  1356                           
+  1357                           	signat	_enable,4216
+  1358                           	global	___aldiv
+  1359                           psect	text377,local,class=CODE,delta=2
+  1360                           global __ptext377
+  1361  0015                     __ptext377:
+  1362                           
+  1363 ;; *************** function ___aldiv *****************
+  1364 ;; Defined at:
+  1365 ;;		line 5 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\aldiv.c"
+  1366 ;; Parameters:    Size  Location     Type
+  1367 ;;  divisor         4    0[BANK0 ] long 
+  1368 ;;  dividend        4    4[BANK0 ] long 
+  1369 ;; Auto vars:     Size  Location     Type
+  1370 ;;  quotient        4   10[BANK0 ] long 
+  1371 ;;  sign            1    9[BANK0 ] unsigned char 
+  1372 ;;  counter         1    8[BANK0 ] unsigned char 
+  1373 ;; Return value:  Size  Location     Type
+  1374 ;;                  4    0[BANK0 ] long 
+  1375 ;; Registers used:
+  1376 ;;		wreg, status,2, status,0
+  1377 ;; Tracked objects:
+  1378 ;;		On entry : 0/0
+  1379 ;;		On exit  : 0/0
+  1380 ;;		Unchanged: 0/0
+  1381 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1382 ;;      Params:         0       8       0       0       0
+  1383 ;;      Locals:         0       6       0       0       0
+  1384 ;;      Temps:          1       0       0       0       0
+  1385 ;;      Totals:         1      14       0       0       0
+  1386 ;;Total ram usage:       15 bytes
+  1387 ;; Hardware stack levels used:    1
+  1388 ;; Hardware stack levels required when called:    1
+  1389 ;; This function calls:
+  1390 ;;		Nothing
+  1391 ;; This function is called by:
+  1392 ;;		_tostring
+  1393 ;; This function uses a non-reentrant model
+  1394 ;;
+  1395                           psect	text377
+  1396                           	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\aldiv.c"
+  1397                           	line	5
+  1398                           	global	__size_of___aldiv
+  1399  00A8                     	__size_of___aldiv	equ	__end_of___aldiv-___aldiv
+  1400                           	
+  1401  0015                     ___aldiv:	
+  1402                           	opt	stack 3
+  1403                           ; Regs used in ___aldiv: [wreg+status,2+status,0]
+  1404                           	line	9
+  1405                           	
+  1406  0015                     l2894:	
+  1407  0015  1283               	bcf	status, 5	;RP0=0, select bank0
+  1408  0016  1303               	bcf	status, 6	;RP1=0, select bank0
+  1409  0017  01A9               	clrf	(___aldiv@sign)
+  1410                           	line	10
+  1411  0018  1FA3               	btfss	(___aldiv@divisor+3),7
+  1412  0019  281B               	goto	u2541
+  1413  001A  281C               	goto	u2540
+  1414  001B                     u2541:
+  1415  001B  282B               	goto	l2900
+  1416  001C                     u2540:
+  1417                           	line	11
+  1418                           	
+  1419  001C                     l2896:	
+  1420  001C  09A0               	comf	(___aldiv@divisor),f
+  1421  001D  09A1               	comf	(___aldiv@divisor+1),f
+  1422  001E  09A2               	comf	(___aldiv@divisor+2),f
+  1423  001F  09A3               	comf	(___aldiv@divisor+3),f
+  1424  0020  0AA0               	incf	(___aldiv@divisor),f
+  1425  0021  1903               	skipnz
+  1426  0022  0AA1               	incf	(___aldiv@divisor+1),f
+  1427  0023  1903               	skipnz
+  1428  0024  0AA2               	incf	(___aldiv@divisor+2),f
+  1429  0025  1903               	skipnz
+  1430  0026  0AA3               	incf	(___aldiv@divisor+3),f
+  1431                           	line	12
+  1432                           	
+  1433  0027                     l2898:	
+  1434  0027  01A9               	clrf	(___aldiv@sign)
+  1435  0028  1403               	bsf	status,0
+  1436  0029  0DA9               	rlf	(___aldiv@sign),f
+  1437  002A  282B               	goto	l2900
+  1438                           	line	13
+  1439                           	
+  1440  002B                     l1625:	
+  1441                           	line	14
+  1442                           	
+  1443  002B                     l2900:	
+  1444  002B  1FA7               	btfss	(___aldiv@dividend+3),7
+  1445  002C  282E               	goto	u2551
+  1446  002D  282F               	goto	u2550
+  1447  002E                     u2551:
+  1448  002E  283F               	goto	l2906
+  1449  002F                     u2550:
+  1450                           	line	15
+  1451                           	
+  1452  002F                     l2902:	
+  1453  002F  09A4               	comf	(___aldiv@dividend),f
+  1454  0030  09A5               	comf	(___aldiv@dividend+1),f
+  1455  0031  09A6               	comf	(___aldiv@dividend+2),f
+  1456  0032  09A7               	comf	(___aldiv@dividend+3),f
+  1457  0033  0AA4               	incf	(___aldiv@dividend),f
+  1458  0034  1903               	skipnz
+  1459  0035  0AA5               	incf	(___aldiv@dividend+1),f
+  1460  0036  1903               	skipnz
+  1461  0037  0AA6               	incf	(___aldiv@dividend+2),f
+  1462  0038  1903               	skipnz
+  1463  0039  0AA7               	incf	(___aldiv@dividend+3),f
+  1464                           	line	16
+  1465                           	
+  1466  003A                     l2904:	
+  1467  003A  3001               	movlw	(01h)
+  1468  003B  00F5               	movwf	(??___aldiv+0)+0
+  1469  003C  0875               	movf	(??___aldiv+0)+0,w
+  1470  003D  06A9               	xorwf	(___aldiv@sign),f
+  1471  003E  283F               	goto	l2906
+  1472                           	line	17
+  1473                           	
+  1474  003F                     l1626:	
+  1475                           	line	18
+  1476                           	
+  1477  003F                     l2906:	
+  1478  003F  3000               	movlw	0
+  1479  0040  00AD               	movwf	(___aldiv@quotient+3)
+  1480  0041  3000               	movlw	0
+  1481  0042  00AC               	movwf	(___aldiv@quotient+2)
+  1482  0043  3000               	movlw	0
+  1483  0044  00AB               	movwf	(___aldiv@quotient+1)
+  1484  0045  3000               	movlw	0
+  1485  0046  00AA               	movwf	(___aldiv@quotient)
+  1486                           
+  1487                           	line	19
+  1488                           	
+  1489  0047                     l2908:	
+  1490  0047  0823               	movf	(___aldiv@divisor+3),w
+  1491  0048  0422               	iorwf	(___aldiv@divisor+2),w
+  1492  0049  0421               	iorwf	(___aldiv@divisor+1),w
+  1493  004A  0420               	iorwf	(___aldiv@divisor),w
+  1494  004B  1903               	skipnz
+  1495  004C  284E               	goto	u2561
+  1496  004D  284F               	goto	u2560
+  1497  004E                     u2561:
+  1498  004E  28A3               	goto	l2928
+  1499  004F                     u2560:
+  1500                           	line	20
+  1501                           	
+  1502  004F                     l2910:	
+  1503  004F  01A8               	clrf	(___aldiv@counter)
+  1504  0050  1403               	bsf	status,0
+  1505  0051  0DA8               	rlf	(___aldiv@counter),f
+  1506                           	line	21
+  1507  0052  2861               	goto	l2914
+  1508                           	
+  1509  0053                     l1629:	
+  1510                           	line	22
+  1511                           	
+  1512  0053                     l2912:	
+  1513  0053  3001               	movlw	01h
+  1514  0054  00F5               	movwf	(??___aldiv+0)+0
+  1515  0055                     u2575:
+  1516  0055  1003               	clrc
+  1517  0056  0DA0               	rlf	(___aldiv@divisor),f
+  1518  0057  0DA1               	rlf	(___aldiv@divisor+1),f
+  1519  0058  0DA2               	rlf	(___aldiv@divisor+2),f
+  1520  0059  0DA3               	rlf	(___aldiv@divisor+3),f
+  1521  005A  0BF5               	decfsz	(??___aldiv+0)+0
+  1522  005B  2855               	goto	u2575
+  1523                           	line	23
+  1524  005C  3001               	movlw	(01h)
+  1525  005D  00F5               	movwf	(??___aldiv+0)+0
+  1526  005E  0875               	movf	(??___aldiv+0)+0,w
+  1527  005F  07A8               	addwf	(___aldiv@counter),f
+  1528  0060  2861               	goto	l2914
+  1529                           	line	24
+  1530                           	
+  1531  0061                     l1628:	
+  1532                           	line	21
+  1533                           	
+  1534  0061                     l2914:	
+  1535  0061  1FA3               	btfss	(___aldiv@divisor+3),(31)&7
+  1536  0062  2864               	goto	u2581
+  1537  0063  2865               	goto	u2580
+  1538  0064                     u2581:
+  1539  0064  2853               	goto	l2912
+  1540  0065                     u2580:
+  1541  0065  2867               	goto	l2916
+  1542                           	
+  1543  0066                     l1630:	
+  1544  0066  2867               	goto	l2916
+  1545                           	line	25
+  1546                           	
+  1547  0067                     l1631:	
+  1548                           	line	26
+  1549                           	
+  1550  0067                     l2916:	
+  1551  0067  3001               	movlw	01h
+  1552  0068  00F5               	movwf	(??___aldiv+0)+0
+  1553  0069                     u2595:
+  1554  0069  1003               	clrc
+  1555  006A  0DAA               	rlf	(___aldiv@quotient),f
+  1556  006B  0DAB               	rlf	(___aldiv@quotient+1),f
+  1557  006C  0DAC               	rlf	(___aldiv@quotient+2),f
+  1558  006D  0DAD               	rlf	(___aldiv@quotient+3),f
+  1559  006E  0BF5               	decfsz	(??___aldiv+0)+0
+  1560  006F  2869               	goto	u2595
+  1561                           	line	27
+  1562                           	
+  1563  0070                     l2918:	
+  1564  0070  0823               	movf	(___aldiv@divisor+3),w
+  1565  0071  0227               	subwf	(___aldiv@dividend+3),w
+  1566  0072  1D03               	skipz
+  1567  0073  287E               	goto	u2605
+  1568  0074  0822               	movf	(___aldiv@divisor+2),w
+  1569  0075  0226               	subwf	(___aldiv@dividend+2),w
+  1570  0076  1D03               	skipz
+  1571  0077  287E               	goto	u2605
+  1572  0078  0821               	movf	(___aldiv@divisor+1),w
+  1573  0079  0225               	subwf	(___aldiv@dividend+1),w
+  1574  007A  1D03               	skipz
+  1575  007B  287E               	goto	u2605
+  1576  007C  0820               	movf	(___aldiv@divisor),w
+  1577  007D  0224               	subwf	(___aldiv@dividend),w
+  1578  007E                     u2605:
+  1579  007E  1C03               	skipc
+  1580  007F  2881               	goto	u2601
+  1581  0080  2882               	goto	u2600
+  1582  0081                     u2601:
+  1583  0081  2892               	goto	l2924
+  1584  0082                     u2600:
+  1585                           	line	28
+  1586                           	
+  1587  0082                     l2920:	
+  1588  0082  0820               	movf	(___aldiv@divisor),w
+  1589  0083  02A4               	subwf	(___aldiv@dividend),f
+  1590  0084  0821               	movf	(___aldiv@divisor+1),w
+  1591  0085  1C03               	skipc
+  1592  0086  0F21               	incfsz	(___aldiv@divisor+1),w
+  1593  0087  02A5               	subwf	(___aldiv@dividend+1),f
+  1594  0088  0822               	movf	(___aldiv@divisor+2),w
+  1595  0089  1C03               	skipc
+  1596  008A  0F22               	incfsz	(___aldiv@divisor+2),w
+  1597  008B  02A6               	subwf	(___aldiv@dividend+2),f
+  1598  008C  0823               	movf	(___aldiv@divisor+3),w
+  1599  008D  1C03               	skipc
+  1600  008E  0F23               	incfsz	(___aldiv@divisor+3),w
+  1601  008F  02A7               	subwf	(___aldiv@dividend+3),f
+  1602                           	line	29
+  1603                           	
+  1604  0090                     l2922:	
+  1605  0090  142A               	bsf	(___aldiv@quotient)+(0/8),(0)&7
+  1606  0091  2892               	goto	l2924
+  1607                           	line	30
+  1608                           	
+  1609  0092                     l1632:	
+  1610                           	line	31
+  1611                           	
+  1612  0092                     l2924:	
+  1613  0092  3001               	movlw	01h
+  1614  0093                     u2615:
+  1615  0093  1003               	clrc
+  1616  0094  0CA3               	rrf	(___aldiv@divisor+3),f
+  1617  0095  0CA2               	rrf	(___aldiv@divisor+2),f
+  1618  0096  0CA1               	rrf	(___aldiv@divisor+1),f
+  1619  0097  0CA0               	rrf	(___aldiv@divisor),f
+  1620  0098  3EFF               	addlw	-1
+  1621  0099  1D03               	skipz
+  1622  009A  2893               	goto	u2615
+  1623                           
+  1624                           	line	32
+  1625                           	
+  1626  009B                     l2926:	
+  1627  009B  3001               	movlw	low(01h)
+  1628  009C  02A8               	subwf	(___aldiv@counter),f
+  1629  009D  1D03               	btfss	status,2
+  1630  009E  28A0               	goto	u2621
+  1631  009F  28A1               	goto	u2620
+  1632  00A0                     u2621:
+  1633  00A0  2867               	goto	l2916
+  1634  00A1                     u2620:
+  1635  00A1  28A3               	goto	l2928
+  1636                           	
+  1637  00A2                     l1633:	
+  1638  00A2  28A3               	goto	l2928
+  1639                           	line	33
+  1640                           	
+  1641  00A3                     l1627:	
+  1642                           	line	34
+  1643                           	
+  1644  00A3                     l2928:	
+  1645  00A3  0829               	movf	(___aldiv@sign),w
+  1646  00A4  1D03               	skipz
+  1647  00A5  28A7               	goto	u2630
+  1648  00A6  28B3               	goto	l2932
+  1649  00A7                     u2630:
+  1650                           	line	35
+  1651                           	
+  1652  00A7                     l2930:	
+  1653  00A7  09AA               	comf	(___aldiv@quotient),f
+  1654  00A8  09AB               	comf	(___aldiv@quotient+1),f
+  1655  00A9  09AC               	comf	(___aldiv@quotient+2),f
+  1656  00AA  09AD               	comf	(___aldiv@quotient+3),f
+  1657  00AB  0AAA               	incf	(___aldiv@quotient),f
+  1658  00AC  1903               	skipnz
+  1659  00AD  0AAB               	incf	(___aldiv@quotient+1),f
+  1660  00AE  1903               	skipnz
+  1661  00AF  0AAC               	incf	(___aldiv@quotient+2),f
+  1662  00B0  1903               	skipnz
+  1663  00B1  0AAD               	incf	(___aldiv@quotient+3),f
+  1664  00B2  28B3               	goto	l2932
+  1665                           	
+  1666  00B3                     l1634:	
+  1667                           	line	36
+  1668                           	
+  1669  00B3                     l2932:	
+  1670  00B3  082D               	movf	(___aldiv@quotient+3),w
+  1671  00B4  00A3               	movwf	(?___aldiv+3)
+  1672  00B5  082C               	movf	(___aldiv@quotient+2),w
+  1673  00B6  00A2               	movwf	(?___aldiv+2)
+  1674  00B7  082B               	movf	(___aldiv@quotient+1),w
+  1675  00B8  00A1               	movwf	(?___aldiv+1)
+  1676  00B9  082A               	movf	(___aldiv@quotient),w
+  1677  00BA  00A0               	movwf	(?___aldiv)
+  1678                           
+  1679  00BB  28BC               	goto	l1635
+  1680                           	
+  1681  00BC                     l2934:	
+  1682                           	line	37
+  1683                           	
+  1684  00BC                     l1635:	
+  1685  00BC  0008               	return
+  1686                           	opt stack 0
+  1687                           GLOBAL	__end_of___aldiv
+  1688  00BD                     	__end_of___aldiv:
+  1689 ;; =============== function ___aldiv ends ============
+  1690                           
+  1691                           	signat	___aldiv,8316
+  1692                           	global	___almod
+  1693                           psect	text378,local,class=CODE,delta=2
+  1694                           global __ptext378
+  1695  00BD                     __ptext378:
+  1696                           
+  1697 ;; *************** function ___almod *****************
+  1698 ;; Defined at:
+  1699 ;;		line 5 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\almod.c"
+  1700 ;; Parameters:    Size  Location     Type
+  1701 ;;  divisor         4    0[BANK0 ] long 
+  1702 ;;  dividend        4    4[BANK0 ] long 
+  1703 ;; Auto vars:     Size  Location     Type
+  1704 ;;  sign            1    9[BANK0 ] unsigned char 
+  1705 ;;  counter         1    8[BANK0 ] unsigned char 
+  1706 ;; Return value:  Size  Location     Type
+  1707 ;;                  4    0[BANK0 ] long 
+  1708 ;; Registers used:
+  1709 ;;		wreg, status,2, status,0
+  1710 ;; Tracked objects:
+  1711 ;;		On entry : 0/0
+  1712 ;;		On exit  : 0/0
+  1713 ;;		Unchanged: 0/0
+  1714 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1715 ;;      Params:         0       8       0       0       0
+  1716 ;;      Locals:         0       2       0       0       0
+  1717 ;;      Temps:          1       0       0       0       0
+  1718 ;;      Totals:         1      10       0       0       0
+  1719 ;;Total ram usage:       11 bytes
+  1720 ;; Hardware stack levels used:    1
+  1721 ;; Hardware stack levels required when called:    1
+  1722 ;; This function calls:
+  1723 ;;		Nothing
+  1724 ;; This function is called by:
+  1725 ;;		_tostring
+  1726 ;; This function uses a non-reentrant model
+  1727 ;;
+  1728                           psect	text378
+  1729                           	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.82\sources\almod.c"
+  1730                           	line	5
+  1731                           	global	__size_of___almod
+  1732  0092                     	__size_of___almod	equ	__end_of___almod-___almod
+  1733                           	
+  1734  00BD                     ___almod:	
+  1735                           	opt	stack 3
+  1736                           ; Regs used in ___almod: [wreg+status,2+status,0]
+  1737                           	line	8
+  1738                           	
+  1739  00BD                     l3036:	
+  1740  00BD  1283               	bcf	status, 5	;RP0=0, select bank0
+  1741  00BE  1303               	bcf	status, 6	;RP1=0, select bank0
+  1742  00BF  01A9               	clrf	(___almod@sign)
+  1743                           	line	9
+  1744  00C0  1FA7               	btfss	(___almod@dividend+3),7
+  1745  00C1  28C3               	goto	u2721
+  1746  00C2  28C4               	goto	u2720
+  1747  00C3                     u2721:
+  1748  00C3  28D3               	goto	l3042
+  1749  00C4                     u2720:
+  1750                           	line	10
+  1751                           	
+  1752  00C4                     l3038:	
+  1753  00C4  09A4               	comf	(___almod@dividend),f
+  1754  00C5  09A5               	comf	(___almod@dividend+1),f
+  1755  00C6  09A6               	comf	(___almod@dividend+2),f
+  1756  00C7  09A7               	comf	(___almod@dividend+3),f
+  1757  00C8  0AA4               	incf	(___almod@dividend),f
+  1758  00C9  1903               	skipnz
+  1759  00CA  0AA5               	incf	(___almod@dividend+1),f
+  1760  00CB  1903               	skipnz
+  1761  00CC  0AA6               	incf	(___almod@dividend+2),f
+  1762  00CD  1903               	skipnz
+  1763  00CE  0AA7               	incf	(___almod@dividend+3),f
+  1764                           	line	11
+  1765                           	
+  1766  00CF                     l3040:	
+  1767  00CF  01A9               	clrf	(___almod@sign)
+  1768  00D0  1403               	bsf	status,0
+  1769  00D1  0DA9               	rlf	(___almod@sign),f
+  1770  00D2  28D3               	goto	l3042
+  1771                           	line	12
+  1772                           	
+  1773  00D3                     l1612:	
+  1774                           	line	13
+  1775                           	
+  1776  00D3                     l3042:	
+  1777  00D3  1FA3               	btfss	(___almod@divisor+3),7
+  1778  00D4  28D6               	goto	u2731
+  1779  00D5  28D7               	goto	u2730
+  1780  00D6                     u2731:
+  1781  00D6  28E3               	goto	l3046
+  1782  00D7                     u2730:
+  1783                           	line	14
+  1784                           	
+  1785  00D7                     l3044:	
+  1786  00D7  09A0               	comf	(___almod@divisor),f
+  1787  00D8  09A1               	comf	(___almod@divisor+1),f
+  1788  00D9  09A2               	comf	(___almod@divisor+2),f
+  1789  00DA  09A3               	comf	(___almod@divisor+3),f
+  1790  00DB  0AA0               	incf	(___almod@divisor),f
+  1791  00DC  1903               	skipnz
+  1792  00DD  0AA1               	incf	(___almod@divisor+1),f
+  1793  00DE  1903               	skipnz
+  1794  00DF  0AA2               	incf	(___almod@divisor+2),f
+  1795  00E0  1903               	skipnz
+  1796  00E1  0AA3               	incf	(___almod@divisor+3),f
+  1797  00E2  28E3               	goto	l3046
+  1798                           	
+  1799  00E3                     l1613:	
+  1800                           	line	15
+  1801                           	
+  1802  00E3                     l3046:	
+  1803  00E3  0823               	movf	(___almod@divisor+3),w
+  1804  00E4  0422               	iorwf	(___almod@divisor+2),w
+  1805  00E5  0421               	iorwf	(___almod@divisor+1),w
+  1806  00E6  0420               	iorwf	(___almod@divisor),w
+  1807  00E7  1903               	skipnz
+  1808  00E8  28EA               	goto	u2741
+  1809  00E9  28EB               	goto	u2740
+  1810  00EA                     u2741:
+  1811  00EA  2935               	goto	l3062
+  1812  00EB                     u2740:
+  1813                           	line	16
+  1814                           	
+  1815  00EB                     l3048:	
+  1816  00EB  01A8               	clrf	(___almod@counter)
+  1817  00EC  1403               	bsf	status,0
+  1818  00ED  0DA8               	rlf	(___almod@counter),f
+  1819                           	line	17
+  1820  00EE  28FD               	goto	l3052
+  1821                           	
+  1822  00EF                     l1616:	
+  1823                           	line	18
+  1824                           	
+  1825  00EF                     l3050:	
+  1826  00EF  3001               	movlw	01h
+  1827  00F0  00F5               	movwf	(??___almod+0)+0
+  1828  00F1                     u2755:
+  1829  00F1  1003               	clrc
+  1830  00F2  0DA0               	rlf	(___almod@divisor),f
+  1831  00F3  0DA1               	rlf	(___almod@divisor+1),f
+  1832  00F4  0DA2               	rlf	(___almod@divisor+2),f
+  1833  00F5  0DA3               	rlf	(___almod@divisor+3),f
+  1834  00F6  0BF5               	decfsz	(??___almod+0)+0
+  1835  00F7  28F1               	goto	u2755
+  1836                           	line	19
+  1837  00F8  3001               	movlw	(01h)
+  1838  00F9  00F5               	movwf	(??___almod+0)+0
+  1839  00FA  0875               	movf	(??___almod+0)+0,w
+  1840  00FB  07A8               	addwf	(___almod@counter),f
+  1841  00FC  28FD               	goto	l3052
+  1842                           	line	20
+  1843                           	
+  1844  00FD                     l1615:	
+  1845                           	line	17
+  1846                           	
+  1847  00FD                     l3052:	
+  1848  00FD  1FA3               	btfss	(___almod@divisor+3),(31)&7
+  1849  00FE  2900               	goto	u2761
+  1850  00FF  2901               	goto	u2760
+  1851  0100                     u2761:
+  1852  0100  28EF               	goto	l3050
+  1853  0101                     u2760:
+  1854  0101  2903               	goto	l3054
+  1855                           	
+  1856  0102                     l1617:	
+  1857  0102  2903               	goto	l3054
+  1858                           	line	21
+  1859                           	
+  1860  0103                     l1618:	
+  1861                           	line	22
+  1862                           	
+  1863  0103                     l3054:	
+  1864  0103  0823               	movf	(___almod@divisor+3),w
+  1865  0104  0227               	subwf	(___almod@dividend+3),w
+  1866  0105  1D03               	skipz
+  1867  0106  2911               	goto	u2775
+  1868  0107  0822               	movf	(___almod@divisor+2),w
+  1869  0108  0226               	subwf	(___almod@dividend+2),w
+  1870  0109  1D03               	skipz
+  1871  010A  2911               	goto	u2775
+  1872  010B  0821               	movf	(___almod@divisor+1),w
+  1873  010C  0225               	subwf	(___almod@dividend+1),w
+  1874  010D  1D03               	skipz
+  1875  010E  2911               	goto	u2775
+  1876  010F  0820               	movf	(___almod@divisor),w
+  1877  0110  0224               	subwf	(___almod@dividend),w
+  1878  0111                     u2775:
+  1879  0111  1C03               	skipc
+  1880  0112  2914               	goto	u2771
+  1881  0113  2915               	goto	u2770
+  1882  0114                     u2771:
+  1883  0114  2924               	goto	l3058
+  1884  0115                     u2770:
+  1885                           	line	23
+  1886                           	
+  1887  0115                     l3056:	
+  1888  0115  0820               	movf	(___almod@divisor),w
+  1889  0116  02A4               	subwf	(___almod@dividend),f
+  1890  0117  0821               	movf	(___almod@divisor+1),w
+  1891  0118  1C03               	skipc
+  1892  0119  0F21               	incfsz	(___almod@divisor+1),w
+  1893  011A  02A5               	subwf	(___almod@dividend+1),f
+  1894  011B  0822               	movf	(___almod@divisor+2),w
+  1895  011C  1C03               	skipc
+  1896  011D  0F22               	incfsz	(___almod@divisor+2),w
+  1897  011E  02A6               	subwf	(___almod@dividend+2),f
+  1898  011F  0823               	movf	(___almod@divisor+3),w
+  1899  0120  1C03               	skipc
+  1900  0121  0F23               	incfsz	(___almod@divisor+3),w
+  1901  0122  02A7               	subwf	(___almod@dividend+3),f
+  1902  0123  2924               	goto	l3058
+  1903                           	
+  1904  0124                     l1619:	
+  1905                           	line	24
+  1906                           	
+  1907  0124                     l3058:	
+  1908  0124  3001               	movlw	01h
+  1909  0125                     u2785:
+  1910  0125  1003               	clrc
+  1911  0126  0CA3               	rrf	(___almod@divisor+3),f
+  1912  0127  0CA2               	rrf	(___almod@divisor+2),f
+  1913  0128  0CA1               	rrf	(___almod@divisor+1),f
+  1914  0129  0CA0               	rrf	(___almod@divisor),f
+  1915  012A  3EFF               	addlw	-1
+  1916  012B  1D03               	skipz
+  1917  012C  2925               	goto	u2785
+  1918                           
+  1919                           	line	25
+  1920                           	
+  1921  012D                     l3060:	
+  1922  012D  3001               	movlw	low(01h)
+  1923  012E  02A8               	subwf	(___almod@counter),f
+  1924  012F  1D03               	btfss	status,2
+  1925  0130  2932               	goto	u2791
+  1926  0131  2933               	goto	u2790
+  1927  0132                     u2791:
+  1928  0132  2903               	goto	l3054
+  1929  0133                     u2790:
+  1930  0133  2935               	goto	l3062
+  1931                           	
+  1932  0134                     l1620:	
+  1933  0134  2935               	goto	l3062
+  1934                           	line	26
+  1935                           	
+  1936  0135                     l1614:	
+  1937                           	line	27
+  1938                           	
+  1939  0135                     l3062:	
+  1940  0135  0829               	movf	(___almod@sign),w
+  1941  0136  1D03               	skipz
+  1942  0137  2939               	goto	u2800
+  1943  0138  2945               	goto	l3066
+  1944  0139                     u2800:
+  1945                           	line	28
+  1946                           	
+  1947  0139                     l3064:	
+  1948  0139  09A4               	comf	(___almod@dividend),f
+  1949  013A  09A5               	comf	(___almod@dividend+1),f
+  1950  013B  09A6               	comf	(___almod@dividend+2),f
+  1951  013C  09A7               	comf	(___almod@dividend+3),f
+  1952  013D  0AA4               	incf	(___almod@dividend),f
+  1953  013E  1903               	skipnz
+  1954  013F  0AA5               	incf	(___almod@dividend+1),f
+  1955  0140  1903               	skipnz
+  1956  0141  0AA6               	incf	(___almod@dividend+2),f
+  1957  0142  1903               	skipnz
+  1958  0143  0AA7               	incf	(___almod@dividend+3),f
+  1959  0144  2945               	goto	l3066
+  1960                           	
+  1961  0145                     l1621:	
+  1962                           	line	29
+  1963                           	
+  1964  0145                     l3066:	
+  1965  0145  0827               	movf	(___almod@dividend+3),w
+  1966  0146  00A3               	movwf	(?___almod+3)
+  1967  0147  0826               	movf	(___almod@dividend+2),w
+  1968  0148  00A2               	movwf	(?___almod+2)
+  1969  0149  0825               	movf	(___almod@dividend+1),w
+  1970  014A  00A1               	movwf	(?___almod+1)
+  1971  014B  0824               	movf	(___almod@dividend),w
+  1972  014C  00A0               	movwf	(?___almod)
+  1973                           
+  1974  014D  294E               	goto	l1622
+  1975                           	
+  1976  014E                     l3068:	
+  1977                           	line	30
+  1978                           	
+  1979  014E                     l1622:	
+  1980  014E  0008               	return
+  1981                           	opt stack 0
+  1982                           GLOBAL	__end_of___almod
+  1983  014F                     	__end_of___almod:
+  1984 ;; =============== function ___almod ends ============
+  1985                           
+  1986                           	signat	___almod,8316
+  1987                           	global	_delay
+  1988                           psect	text379,local,class=CODE,delta=2
+  1989                           global __ptext379
+  1990  02DC                     __ptext379:
+  1991                           
+  1992 ;; *************** function _delay *****************
+  1993 ;; Defined at:
+  1994 ;;		line 95 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+  1995 ;; Parameters:    Size  Location     Type
+  1996 ;;  t               2    5[COMMON] int 
+  1997 ;; Auto vars:     Size  Location     Type
+  1998 ;;  i               2    1[BANK0 ] int 
+  1999 ;; Return value:  Size  Location     Type
+  2000 ;;		None               void
+  2001 ;; Registers used:
+  2002 ;;		wreg, status,2
+  2003 ;; Tracked objects:
+  2004 ;;		On entry : 0/0
+  2005 ;;		On exit  : 0/0
+  2006 ;;		Unchanged: 0/0
+  2007 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2008 ;;      Params:         2       0       0       0       0
+  2009 ;;      Locals:         0       2       0       0       0
+  2010 ;;      Temps:          0       1       0       0       0
+  2011 ;;      Totals:         2       3       0       0       0
+  2012 ;;Total ram usage:        5 bytes
+  2013 ;; Hardware stack levels used:    1
+  2014 ;; Hardware stack levels required when called:    1
+  2015 ;; This function calls:
+  2016 ;;		Nothing
+  2017 ;; This function is called by:
+  2018 ;;		_init
+  2019 ;;		_enable
+  2020 ;; This function uses a non-reentrant model
+  2021 ;;
+  2022                           psect	text379
+  2023                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+  2024                           	line	95
+  2025                           	global	__size_of_delay
+  2026  001D                     	__size_of_delay	equ	__end_of_delay-_delay
+  2027                           	
+  2028  02DC                     _delay:	
+  2029                           	opt	stack 3
+  2030                           ; Regs used in _delay: [wreg+status,2]
+  2031                           	line	96
+  2032                           	
+  2033  02DC                     l3032:	
+  2034                           ;Receiver.c: 96: for (int i=0;i<t;++i) ;
+  2035  02DC  1283               	bcf	status, 5	;RP0=0, select bank0
+  2036  02DD  1303               	bcf	status, 6	;RP1=0, select bank0
+  2037  02DE  01A1               	clrf	(delay@i)
+  2038  02DF  01A2               	clrf	(delay@i+1)
+  2039  02E0  2AE9               	goto	l728
+  2040                           	
+  2041  02E1                     l729:	
+  2042                           	
+  2043  02E1                     l3034:	
+  2044  02E1  3001               	movlw	low(01h)
+  2045  02E2  1283               	bcf	status, 5	;RP0=0, select bank0
+  2046  02E3  1303               	bcf	status, 6	;RP1=0, select bank0
+  2047  02E4  07A1               	addwf	(delay@i),f
+  2048  02E5  1803               	skipnc
+  2049  02E6  0AA2               	incf	(delay@i+1),f
+  2050  02E7  3000               	movlw	high(01h)
+  2051  02E8  07A2               	addwf	(delay@i+1),f
+  2052                           	
+  2053  02E9                     l728:	
+  2054  02E9  0822               	movf	(delay@i+1),w
+  2055  02EA  3A80               	xorlw	80h
+  2056  02EB  00A0               	movwf	(??_delay+0)+0
+  2057  02EC  0876               	movf	(delay@t+1),w
+  2058  02ED  3A80               	xorlw	80h
+  2059  02EE  0220               	subwf	(??_delay+0)+0,w
+  2060  02EF  1D03               	skipz
+  2061  02F0  2AF3               	goto	u2715
+  2062  02F1  0875               	movf	(delay@t),w
+  2063  02F2  0221               	subwf	(delay@i),w
+  2064  02F3                     u2715:
+  2065                           
+  2066  02F3  1C03               	skipc
+  2067  02F4  2AF6               	goto	u2711
+  2068  02F5  2AF7               	goto	u2710
+  2069  02F6                     u2711:
+  2070  02F6  2AE1               	goto	l3034
+  2071  02F7                     u2710:
+  2072  02F7  2AF8               	goto	l731
+  2073                           	
+  2074  02F8                     l730:	
+  2075                           	line	97
+  2076                           	
+  2077  02F8                     l731:	
+  2078  02F8  0008               	return
+  2079                           	opt stack 0
+  2080                           GLOBAL	__end_of_delay
+  2081  02F9                     	__end_of_delay:
+  2082 ;; =============== function _delay ends ============
+  2083                           
+  2084                           	signat	_delay,4216
+  2085                           	global	_ccp1
+  2086                           psect	text380,local,class=CODE,delta=2
+  2087                           global __ptext380
+  2088  014F                     __ptext380:
+  2089                           
+  2090 ;; *************** function _ccp1 *****************
+  2091 ;; Defined at:
+  2092 ;;		line 26 in file "D:\EE\Mplabcode\Task_re\Receiver.c"
+  2093 ;; Parameters:    Size  Location     Type
+  2094 ;;		None
+  2095 ;; Auto vars:     Size  Location     Type
+  2096 ;;		None
+  2097 ;; Return value:  Size  Location     Type
+  2098 ;;		None               void
+  2099 ;; Registers used:
+  2100 ;;		wreg, status,2, status,0
+  2101 ;; Tracked objects:
+  2102 ;;		On entry : 0/0
+  2103 ;;		On exit  : 0/0
+  2104 ;;		Unchanged: 0/0
+  2105 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2106 ;;      Params:         0       0       0       0       0
+  2107 ;;      Locals:         0       0       0       0       0
+  2108 ;;      Temps:          5       0       0       0       0
+  2109 ;;      Totals:         5       0       0       0       0
+  2110 ;;Total ram usage:        5 bytes
+  2111 ;; Hardware stack levels used:    1
+  2112 ;; This function calls:
+  2113 ;;		Nothing
+  2114 ;; This function is called by:
+  2115 ;;		Interrupt level 1
+  2116 ;; This function uses a non-reentrant model
+  2117 ;;
+  2118                           psect	text380
+  2119                           	file	"D:\EE\Mplabcode\Task_re\Receiver.c"
+  2120                           	line	26
+  2121                           	global	__size_of_ccp1
+  2122  0066                     	__size_of_ccp1	equ	__end_of_ccp1-_ccp1
+  2123                           	
+  2124  014F                     _ccp1:	
+  2125                           	opt	stack 3
+  2126                           ; Regs used in _ccp1: [wreg+status,2+status,0]
+  2127                           psect	intentry,class=CODE,delta=2
+  2128                           global __pintentry
+  2129  0004                     __pintentry:
+  2130                           global interrupt_function
+  2131  0004                     interrupt_function:
+  2132                           	global saved_w
+  2133  007E                     	saved_w	set	btemp+0
+  2134  0004  00FE               	movwf	saved_w
+  2135  0005  0E03               	swapf	status,w
+  2136  0006  00F1               	movwf	(??_ccp1+1)
+  2137  0007  0804               	movf	fsr0,w
+  2138  0008  00F2               	movwf	(??_ccp1+2)
+  2139  0009  080A               	movf	pclath,w
+  2140  000A  00F3               	movwf	(??_ccp1+3)
+  2141  000B  1283               	bcf	status, 5	;RP0=0, select bank0
+  2142  000C  1303               	bcf	status, 6	;RP1=0, select bank0
+  2143  000D  087F               	movf	btemp+1,w
+  2144  000E  00F4               	movwf	(??_ccp1+4)
+  2145  000F  120A  118A  294F   	ljmp	_ccp1
+  2146                           psect	text380
+  2147                           	line	27
+  2148                           	
+  2149  014F                     i1l2822:	
+  2150                           ;Receiver.c: 27: if(CCP1IF){
+  2151  014F  1D0C               	btfss	(98/8),(98)&7
+  2152  0150  2952               	goto	u237_21
+  2153  0151  2953               	goto	u237_20
+  2154  0152                     u237_21:
+  2155  0152  29AA               	goto	i1l714
+  2156  0153                     u237_20:
+  2157                           	line	28
+  2158                           	
+  2159  0153                     i1l2824:	
+  2160                           ;Receiver.c: 28: if(CCP1M0){
+  2161  0153  1C17               	btfss	(184/8),(184)&7
+  2162  0154  2956               	goto	u238_21
+  2163  0155  2957               	goto	u238_20
+  2164  0156                     u238_21:
+  2165  0156  29A3               	goto	i1l2848
+  2166  0157                     u238_20:
+  2167                           	line	29
+  2168                           	
+  2169  0157                     i1l2826:	
+  2170                           ;Receiver.c: 29: CCP1CON=0x04;
+  2171  0157  3004               	movlw	(04h)
+  2172  0158  0097               	movwf	(23)	;volatile
+  2173                           	line	30
+  2174                           	
+  2175  0159                     i1l2828:	
+  2176                           ;Receiver.c: 30: CCP1IF=0;
+  2177  0159  110C               	bcf	(98/8),(98)&7
+  2178                           	line	31
+  2179                           	
+  2180  015A                     i1l2830:	
+  2181                           ;Receiver.c: 31: if(CCPR1H<=0){
+  2182  015A  0896               	movf	(22),f
+  2183  015B  1D03               	skipz	;volatile
+  2184  015C  295E               	goto	u239_21
+  2185  015D  295F               	goto	u239_20
+  2186  015E                     u239_21:
+  2187  015E  2969               	goto	i1l2834
+  2188  015F                     u239_20:
+  2189                           	line	32
+  2190                           	
+  2191  015F                     i1l2832:	
+  2192                           ;Receiver.c: 32: data<<=1;
+  2193  015F  3001               	movlw	01h
+  2194  0160  00F0               	movwf	(??_ccp1+0)+0
+  2195  0161                     u240_25:
+  2196  0161  1003               	clrc
+  2197  0162  0DCF               	rlf	(_data),f
+  2198  0163  0DD0               	rlf	(_data+1),f
+  2199  0164  0DD1               	rlf	(_data+2),f
+  2200  0165  0DD2               	rlf	(_data+3),f
+  2201  0166  0BF0               	decfsz	(??_ccp1+0)+0
+  2202  0167  2961               	goto	u240_25
+  2203                           	line	33
+  2204                           ;Receiver.c: 33: }
+  2205  0168  29AA               	goto	i1l714
+  2206                           	line	34
+  2207                           	
+  2208  0169                     i1l709:	
+  2209                           	
+  2210  0169                     i1l2834:	
+  2211                           ;Receiver.c: 34: else if(CCPR1H<=1){
+  2212  0169  3002               	movlw	(02h)
+  2213  016A  0216               	subwf	(22),w	;volatile
+  2214  016B  1803               	skipnc
+  2215  016C  296E               	goto	u241_21
+  2216  016D  296F               	goto	u241_20
+  2217  016E                     u241_21:
+  2218  016E  2987               	goto	i1l2840
+  2219  016F                     u241_20:
+  2220                           	line	35
+  2221                           	
+  2222  016F                     i1l2836:	
+  2223                           ;Receiver.c: 35: data<<=1;
+  2224  016F  3001               	movlw	01h
+  2225  0170  00F0               	movwf	(??_ccp1+0)+0
+  2226  0171                     u242_25:
+  2227  0171  1003               	clrc
+  2228  0172  0DCF               	rlf	(_data),f
+  2229  0173  0DD0               	rlf	(_data+1),f
+  2230  0174  0DD1               	rlf	(_data+2),f
+  2231  0175  0DD2               	rlf	(_data+3),f
+  2232  0176  0BF0               	decfsz	(??_ccp1+0)+0
+  2233  0177  2971               	goto	u242_25
+  2234                           	line	36
+  2235                           	
+  2236  0178                     i1l2838:	
+  2237                           ;Receiver.c: 36: ++data;
+  2238  0178  3001               	movlw	01h
+  2239  0179  07CF               	addwf	(_data),f
+  2240  017A  3000               	movlw	0
+  2241  017B  1803               	skipnc
+  2242  017C  3001               movlw 1
+  2243  017D  07D0               	addwf	(_data+1),f
+  2244  017E  3000               	movlw	0
+  2245  017F  1803               	skipnc
+  2246  0180  3001               movlw 1
+  2247  0181  07D1               	addwf	(_data+2),f
+  2248  0182  3000               	movlw	0
+  2249  0183  1803               	skipnc
+  2250  0184  3001               movlw 1
+  2251  0185  07D2               	addwf	(_data+3),f
+  2252                           	line	37
+  2253                           ;Receiver.c: 37: }
+  2254  0186  29AA               	goto	i1l714
+  2255                           	line	38
+  2256                           	
+  2257  0187                     i1l711:	
+  2258                           	
+  2259  0187                     i1l2840:	
+  2260                           ;Receiver.c: 38: else if(CCPR1H<=3){
+  2261  0187  3004               	movlw	(04h)
+  2262  0188  0216               	subwf	(22),w	;volatile
+  2263  0189  1803               	skipnc
+  2264  018A  298C               	goto	u243_21
+  2265  018B  298D               	goto	u243_20
+  2266  018C                     u243_21:
+  2267  018C  29AA               	goto	i1l714
+  2268  018D                     u243_20:
+  2269                           	line	39
+  2270                           	
+  2271  018D                     i1l2842:	
+  2272                           ;Receiver.c: 39: showdata=data;
+  2273  018D  0852               	movf	(_data+3),w
+  2274  018E  00D6               	movwf	(_showdata+3)
+  2275  018F  0851               	movf	(_data+2),w
+  2276  0190  00D5               	movwf	(_showdata+2)
+  2277  0191  0850               	movf	(_data+1),w
+  2278  0192  00D4               	movwf	(_showdata+1)
+  2279  0193  084F               	movf	(_data),w
+  2280  0194  00D3               	movwf	(_showdata)
+  2281                           
+  2282                           	line	40
+  2283                           	
+  2284  0195                     i1l2844:	
+  2285                           ;Receiver.c: 40: showflag=1;
+  2286  0195  14F7               	bsf	(_showflag/8),(_showflag)&7
+  2287                           	line	41
+  2288                           ;Receiver.c: 41: data=0;
+  2289  0196  3000               	movlw	0
+  2290  0197  00D2               	movwf	(_data+3)
+  2291  0198  3000               	movlw	0
+  2292  0199  00D1               	movwf	(_data+2)
+  2293  019A  3000               	movlw	0
+  2294  019B  00D0               	movwf	(_data+1)
+  2295  019C  3000               	movlw	0
+  2296  019D  00CF               	movwf	(_data)
+  2297                           
+  2298  019E  29AA               	goto	i1l714
+  2299                           	line	42
+  2300                           	
+  2301  019F                     i1l2846:	
+  2302                           ;Receiver.c: 42: return;
+  2303  019F  29AA               	goto	i1l714
+  2304                           	line	43
+  2305                           	
+  2306  01A0                     i1l713:	
+  2307  01A0  29AA               	goto	i1l714
+  2308                           	line	44
+  2309                           	
+  2310  01A1                     i1l712:	
+  2311  01A1  29AA               	goto	i1l714
+  2312                           	
+  2313  01A2                     i1l710:	
+  2314                           ;Receiver.c: 43: }
+  2315                           ;Receiver.c: 44: }
+  2316  01A2  29AA               	goto	i1l714
+  2317                           	line	45
+  2318                           	
+  2319  01A3                     i1l708:	
+  2320                           	line	46
+  2321                           	
+  2322  01A3                     i1l2848:	
+  2323                           ;Receiver.c: 45: else{
+  2324                           ;Receiver.c: 46: CCP1CON=0x05;
+  2325  01A3  3005               	movlw	(05h)
+  2326  01A4  0097               	movwf	(23)	;volatile
+  2327                           	line	47
+  2328                           	
+  2329  01A5                     i1l2850:	
+  2330                           ;Receiver.c: 47: CCP1IF=0;
+  2331  01A5  110C               	bcf	(98/8),(98)&7
+  2332                           	line	48
+  2333                           	
+  2334  01A6                     i1l2852:	
+  2335                           ;Receiver.c: 48: TMR1L=0;
+  2336  01A6  018E               	clrf	(14)	;volatile
+  2337                           	line	49
+  2338                           	
+  2339  01A7                     i1l2854:	
+  2340                           ;Receiver.c: 49: TMR1H=0;
+  2341  01A7  018F               	clrf	(15)	;volatile
+  2342  01A8  29AA               	goto	i1l714
+  2343                           	line	50
+  2344                           	
+  2345  01A9                     i1l715:	
+  2346  01A9  29AA               	goto	i1l714
+  2347                           	line	51
+  2348                           	
+  2349  01AA                     i1l707:	
+  2350                           	line	52
+  2351                           	
+  2352  01AA                     i1l714:	
+  2353  01AA  0874               	movf	(??_ccp1+4),w
+  2354  01AB  00FF               	movwf	btemp+1
+  2355  01AC  0873               	movf	(??_ccp1+3),w
+  2356  01AD  008A               	movwf	pclath
+  2357  01AE  0872               	movf	(??_ccp1+2),w
+  2358  01AF  0084               	movwf	fsr0
+  2359  01B0  0E71               	swapf	(??_ccp1+1)^0FFFFFF80h,w
+  2360  01B1  0083               	movwf	status
+  2361  01B2  0EFE               	swapf	saved_w,f
+  2362  01B3  0E7E               	swapf	saved_w,w
+  2363  01B4  0009               	retfie
+  2364                           	opt stack 0
+  2365                           GLOBAL	__end_of_ccp1
+  2366  01B5                     	__end_of_ccp1:
+  2367 ;; =============== function _ccp1 ends ============
+  2368                           
+  2369                           	signat	_ccp1,88
+  2370                           psect	text381,local,class=CODE,delta=2
+  2371                           global __ptext381
+  2372  0000                     __ptext381:
+  2373                           	global	btemp
+  2374  007E                     	btemp set 07Eh
+  2375                           
+  2376                           	DABS	1,126,2	;btemp
+  2377                           	global	wtemp0
+  2378  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.82 build 9453 
+Symbol Table                                                                                   Sun Nov 28 15:42:33 2021
+
+                   _a 0040                     _s 0057                     pc 0002                    _RD 0C60  
+                  _WR 0C61                    fsr 0004                   l720 02D8                   l721 02D9  
+                 l730 02F8                   l722 02D9                   l731 02F8                   l725 029C  
+                 l734 032F                   l742 0233                   l718 02CC                   l743 025D  
+                 l719 02D7                   l728 02E9                   l744 025D                   l729 02E1  
+                 l737 01C1                   l738 020C                   l739 020C                   l747 02BD  
+                 _GIE 005F                   _RA3 002B                   _RA4 002C                   _RA5 002D  
+                 _RC7 003F                   _end 0078                   fsr0 0004                   indf 0000  
+                l3100 026A                  l3110 0286                  l3102 026B                  l3032 02DC  
+                l3040 00CF                  l3120 0295                  l3112 028F                  l3104 026C  
+                l3034 02E1                  l3050 00EF                  l3042 00D3                  l3122 0298  
+                l3114 0290                  l3106 0275                  l3130 0220                  l1620 0134  
+                l3060 012D                  l3052 00FD                  l3044 00D7                  l1612 00D3  
+                l3036 00BD                  l3124 0299                  l3116 0291                  l3108 0282  
+                l3140 0247                  l3132 0224                  l1621 0145                  l1613 00E3  
+                l1622 014E                  l1614 0135                  l3054 0103                  l3062 0135  
+                l3046 00E3                  l3038 00C4                  l1630 0066                  l3070 0315  
+                l3126 029A                  l3118 0292                  l3142 024F                  l3134 0232  
+                l3150 02BE                  l1615 00FD                  l1631 0067                  l3064 0139  
+                l3056 0115                  l1616 00EF                  l3048 00EB                  l1632 0092  
+                l3072 0323                  l3080 01C0                  l3136 0233                  l3128 020D  
+                l3144 029D                  l3160 02D1                  l3152 02C3                  l1617 0102  
+                l1633 00A2                  l1625 002B                  l3066 0145                  l3058 0124  
+                l1618 0103                  l1634 00B3                  l1626 003F                  l3074 032C  
+                l3082 01C1                  l3090 025E                  l3138 023E                  l3146 02A1  
+                l3154 02C8                  l1619 0124                  l1635 00BC                  l1627 00A3  
+                l3068 014E                  l1628 0061                  l3084 01E2                  l3076 01B5  
+                l3092 0262                  l3148 02AA                  l3156 02CC                  l1629 0053  
+                l3086 0201                  l3078 01BB                  l3094 0263                  l3158 02D0  
+                l3088 0207                  l3096 0265                  l3098 0267                  l2900 002B  
+                l2910 004F                  l2902 002F                  l2920 0082                  l2912 0053  
+                l2904 003A                  l2930 00A7                  l2922 0090                  l2914 0061  
+                l2906 003F                  l2932 00B3                  l2924 0092                  l2916 0067  
+                l2908 0047                  l2934 00BC                  l2926 009B                  l2918 0070  
+                l2928 00A3                  l2894 0015                  l2896 001C                  l2898 0027  
+                u2600 0082                  u2601 0081                  u2620 00A1                  u2540 001C  
+                u2621 00A0                  u2605 007E                  u2541 001B                  u2710 02F7  
+                u2630 00A7                  u2550 002F                  u2711 02F6                  u2615 0093  
+                u2551 002E                  u2800 0139                  u2720 00C4                  u2560 004F  
+                u2721 00C3                  u2561 004E                  u2730 00D7                  u2810 031E  
+                u2715 02F3                  u2731 00D6                  u2811 031A                  u2740 00EB  
+                u2580 0065                  u2741 00EA                  u2581 0064                  u2830 01BF  
+                u2575 0055                  u2831 01BE                  u2760 0101                  u2824 0321  
+                u2840 020B                  u2761 0100                  u2841 020A                  u2770 0115  
+                u2850 0231                  u2771 0114                  u2755 00F1                  u2595 0069  
+                u2851 0230                  _PEIE 005E                  u2860 025C                  u2861 025B  
+                u2790 0133                  u2870 02D0                  u2791 0132                  u2775 0111  
+                u2855 022D                  u2871 02CF                  u2785 0125                  u2865 0258  
+                _WREN 0C62                  _ccp1 014F                  _data 004F                  _flag 03B8  
+                _main 02BE                  _init 025E                  _show 029D                  btemp 007E  
+                start 0012                 ?_ccp1 0070       __end_of___aldiv 00BD       __end_of___almod 014F  
+               ?_main 0070                 ?_init 0070                 _EEADR 010D                 ?_show 0070  
+               _CARRY 0018                 _T1CON 0010                 i1l710 01A2                 i1l711 0187  
+               i1l712 01A1                 i1l713 01A0                 i1l714 01AA                 i1l707 01AA  
+               i1l715 01A9                 i1l708 01A3                 i1l709 0169                 _TMR1H 000F  
+               _TMR1L 000E                 _PORTD 0008                 _TRISA 0085                 _TRISB 0086  
+               _TRISD 0088                 _delay 02DC        __pbitbssCOMMON 03B8                 pclath 000A  
+               status 0003                 wtemp0 007E          __end_of_ccp1 01B5          __end_of_main 02DC  
+        __end_of_init 029D          __end_of_show 02BE                ??_ccp1 0070                ??_main 0077  
+              ??_init 0077                ??_show 003F                ?_delay 0075                _ADCON1 009F  
+              _CCP1M0 00B8                _CCP1IE 0462                _CCP1IF 0062                _EEDATA 010C  
+              _CCPR1H 0016                _EECON1 018C                _EECON2 018D                i1l2830 015A  
+              i1l2822 014F                i1l2840 0187                i1l2832 015F                i1l2824 0153  
+              i1l2850 01A5                i1l2842 018D                i1l2834 0169                i1l2826 0157  
+              i1l2852 01A6                i1l2844 0195                i1l2836 016F                i1l2828 0159  
+              i1l2854 01A7                i1l2846 019F                i1l2838 0178                i1l2848 01A3  
+              u240_25 0161                u241_20 016F                u241_21 016E                u242_25 0171  
+              u243_20 018D                u243_21 018C                u237_20 0153                u237_21 0152  
+              u238_20 0157                u238_21 0156                u239_20 015F                u239_21 015E  
+              _TMR1IF 0060                _TMR1ON 0080                _TRISC2 043A                _TRISC7 043F  
+           ??___aldiv 0075             ??___almod 0075                _enable 0315                delay@i 0021  
+              delay@t 0075                _show_a 020D                clrloop 0358                saved_w 007E  
+    __end_of_tostring 020D        __pcstackCOMMON 0070          __pidataBANK0 0330         __end_of_delay 02F9  
+             ??_delay 0020            __pbssBANK0 0040            __pmaintext 02BE            __pintentry 0004  
+             ?_enable 0023               _CCP1CON 0017               ?_show_a 0037               ___aldiv 0015  
+             ___almod 00BD       __size_of_enable 001B             ?_tostring 002E       __size_of_show_a 0051  
+    ___aldiv@dividend 0024               enable@t 0023  end_of_initialization 0311               init_ram 0348  
+             show_a@i 003D               show_a@s 003B               show_a@x 0037      ___aldiv@quotient 002A  
+          ??_tostring 0033        __end_of_enable 0330        __end_of_show_a 025E   start_initialization 02F9  
+            ??_enable 0077           __pdataBANK0 0057              ??_show_a 003C           __pbssCOMMON 0078  
+       __pcstackBANK0 0020              ?___aldiv 0020              ?___almod 0020             __ptext380 014F  
+           __ptext372 029D             __ptext381 0000             __ptext373 020D             __ptext374 025E  
+           __ptext375 01B5             __ptext376 0315             __ptext377 0015             __ptext378 00BD  
+           __ptext379 02DC      ___almod@dividend 0024     __size_of_tostring 0058        __size_of_delay 001D  
+     ___aldiv@divisor 0020     interrupt_function 0004       ___aldiv@counter 0028             init_fetch 0344  
+    __size_of___aldiv 00A8      __size_of___almod 0092       ___almod@divisor 0020       ___almod@counter 0028  
+       __size_of_ccp1 0066         __size_of_main 001E         __size_of_init 003F         __size_of_show 0021  
+            clear_ram 0357              _showdata 0053              _showflag 03B9              _tostring 01B5  
+            intlevel1 0000             tostring@i 0035             tostring@s 0032             tostring@x 002E  
+        ___aldiv@sign 0029          ___almod@sign 0029  
