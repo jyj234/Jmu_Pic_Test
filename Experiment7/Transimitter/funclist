@@ -1,7 +1,0 @@
-_init: CODE, 379 0 109
-_delay: CODE, 488 0 29
-_main: CODE, 635 0 14
-_enable: CODE, 544 0 27
-_tmr2: CODE, 21 0 358
-i1_delay: CODE, 571 0 25
-Total: 562
