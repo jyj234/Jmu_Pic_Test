@@ -167,7 +167,7 @@ void show_a(long x){
 
 void show (){
 	PORTD=0x80; 
-	enable (INS); //µ½µÚÒ»ÐÐ
+	enable (INS); //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 	/*show_a(data.c[0]);//1*data.i/1023
 	PORTD=0XC0;enable(INS);
 	show_a(data.c[1]);//1*data.i/1023

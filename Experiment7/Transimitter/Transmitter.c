@@ -81,7 +81,7 @@ void interrupt tmr2()
 			cdata=7;
 		CHS0=cdata&0B1;
 		CHS1=(cdata&0B10)>>1;
-		CHS2=(cdata&0B100m)>>2;
+		CHS2=(cdata&0B100)>>2;
 		RD0=CHS0;
 		RD1=CHS1;
 		RD2=CHS2;
