@@ -3,13 +3,10 @@
 
 __CONFIG (0xff29);
 
-#define F_T 21
-#define T 200
 #define RS RA5
 #define RW RA4
 #define E RA3
 
-char a[15];
 char s[20]={"1000000"};
 enum{INS,DATA} ;
 void init();
@@ -19,12 +16,14 @@ void show_a(long x,char *s);
 void show();
 void tostring ( long x , char *s);
 
-bit showflag,flag;
+bit showflag,flag,reflag;
 long data=0,showdata=0;
 char end=0;
 void interrupt ccp1()
 {
 	if(CCP1IF){
+			showflag=1;
+			reflag=2;
 			if(CCP1M0){
 				CCP1CON=0x04;
 				CCP1IF=0;
@@ -56,7 +55,9 @@ main ()
 	
    	init ();
    	show();
+	reflag=1;
 	TMR1ON=1;
+	showflag=1;
     while(1){
 		if(showflag){
 			showflag=0;	
@@ -120,9 +121,19 @@ void show_a(long x,char *s){
 		enable(DATA);
 	}
 }
-
+long tmp;
 void show (){
 	PORTD=0x80; 
-	enable (INS); //到第一行
+	enable (INS); //??????
+/*	tmp=showdata;
+	for(int i=23;i>=0;--i){
+		PORTD=(tmp&1)+'0';
+		enable(DATA);
+		if(i==12){
+			PORTD=0xC0;
+			enable(INS);
+		}
+		tmp>>=1;
+	}*/
 	show_a(showdata,s);  
 }
