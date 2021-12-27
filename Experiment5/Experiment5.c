@@ -9,19 +9,16 @@ __CONFIG (0xff29);
 #define RW RA4
 #define E RA3
 
-int f_hz[2]={1,1},addflag=1;
-long cnt0=0 , cnt1=0;
-char a[15];
 enum{INS,DATA} ;
-volatile unsigned char OPTION_REG @0x81;
 void init();
 void delay (int t);
 void enable (int t);
-void show_a(long x,char *s);
+void show_a(long x);
 void show();
-char tostring ( long x , char *s);
+void tostring (long x);
 void change (int i, char op);
 
+char s[20]="0000000";
 char tout=0,cntH=0,cntL=0,outcnt=0,end=1,cnt=24,icnt=0;
 bit tsmflag,showflag,hflag;
 union{
@@ -107,34 +104,24 @@ void enable (int t) {
 	E=1;
 }
 
-char tostring ( long x , char *s){
-	if(x==0){
-		s[0]='0';
-		return 1;
-	}
-	int i=0;
-	while(x){
+void tostring (long x){
+	for(int i=6;i>=0;--i){
 		s[i]=x%10+'0';
 		x/=10;
-		++i;
 	}
-	return i;
 }
-
-
-void show_a(long x,char *s){
-	int end=tostring(x,s);
-	for(int i=end-1;i>=0;--i){
+void show_a(long x){
+	tostring(x);
+	for(int i=0;i<=6;++i){		
 		PORTD=s[i];
 		enable(DATA);
 	}
 }
 
-
 void show ( ){
 PORTD=0x80; 
 enable (INS); //清屏
-show_a(showdata.l ,a);  //显示RA0频率
+show_a(showdata.l );  //显示RA0频率
 PORTD='u';enable(DATA);
 PORTD='s',enable(DATA);
 }
