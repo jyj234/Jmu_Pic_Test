@@ -3,7 +3,8 @@ __CONFIG(0xFF29);
 #define rs RA5
 #define rw RA4
 #define e RA3
-char ad1,a,b,c,d,e1,f,rcreg;
+char ad1,a,b,c,d,e1,f;
+int rcreg;
 bit flag;
 int y;
 unsigned long x,buf;
@@ -12,6 +13,8 @@ static volatile char table[16]={0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,
                         0x38,0x39,0x41,0x42,0x43,0x44,0x45,0x46};
 void DELAY()
 {unsigned int i;for(i=999;i>0;i--);}
+void DELAY1()
+{unsigned int i;for(i=99;i>0;i--);}
 void ENABLE()
 {rs=0;rw=0;e=0;DELAY();e=1;}
 void ENABLE1()
@@ -24,30 +27,83 @@ void div(){
 	d=x/100;y=x-d*100;
 	e1=y/10;f=y-e1*10;
 }
-void interrupt usart_seve()
-{rcreg=SSPBUF;}
+char rea;
+void interrupt usart_seve(){
+	//rcreg=SSPBUF;É¾³ý
+	/////////////////////Ôö¼Ó
+	if(SSPIF==1){
+		SSPIF=0;
+		if((SSPBUF&0x80)==0){
+			rcreg=(SSPBUF&0B00011111);
+			rea=((SSPBUF&0B01100000)>>5);
+		}
+		else{
+			rcreg+=((SSPBUF&0B00011111)<<5);
+			rea+=((SSPBUF&0B00100000)>>3);
+			flag=1;
+		}
+		SSPBUF=a;
+	}
+	else if(RBIF==1){
+		y=y^PORTB;
+	  TRISB=0x0F;
+	  PORTB=(~y)&0xF0;
+	  DELAY1();
+	  x=PORTB&0x0F;
+	  if(y==0x10&&x==0x0E)a=0;
+	  if(y==0x10&&x==0x0D)a=4;
+	  //if(y==0x10&&x==0x0B)a=8;
+	  //if(y==0x10&&x==0x07)a=0X0C;
+	  if(y==0x20&&x==0x0E)a=1;
+	  if(y==0x20&&x==0x0D)a=5;
+	  //if(y==0x20&&x==0x0B)a=9;
+	  //if(y==0x20&&x==0x07)a=0X0D;
+	  if(y==0x40&&x==0x0E)a=2;
+	  if(y==0x40&&x==0x0D)a=6;
+	  //if(y==0x40&&x==0x0B)a=0X0A;
+	  //if(y==0x40&&x==0x07)a=0X0E;
+	  if(y==0x80&&x==0x0E)a=3;
+	  if(y==0x80&&x==0x0D)a=7;
+	  //if(y==0x80&&x==0x0B)a=0X0B;
+	  //if(y==0x80&&x==0x07)a=0X0F;
+		//PORTC=table[a];ENABLE1();É¾³ý
+	  TRISB=0xF0;PORTB=0;
+	  y=PORTB;RBIF=0;
+	}
+	////////////////////
+}
 main()
 {
 	TRISD=0;//ad_data.count=0;
 	TRISA=0;ADCON1=7;e=1;
 	GIE=1;
 	PORTB=0;
-	DELAY();//è°ƒç”¨å»¶æ—¶ï¼Œåˆšä¸Šç”µçš„LCDå¤ä½ä¸ä¸€å®šæœ‰PICå¿«
-	PORTD=1;//æ¸…å±
+	DELAY();//µ÷ÓÃÑÓÊ±£¬¸ÕÉÏµçµÄLCD¸´Î»²»Ò»¶¨ÓÐPIC¿ì
+	PORTD=1;//ÇåÆÁ
 	ENABLE();
-	PORTD=0x38;//8ä½2è¡Œ5x7ç‚¹é˜µ
+	PORTD=0x38;//8Î»2ÐÐ5x7µãÕó
 	ENABLE();
-	PORTD=0x0C;//æ˜¾ç¤ºå™¨å¼€ï¼Œå…‰æ ‡å¼€ï¼Œé—ªçƒå¼€
+	PORTD=0x0C;//ÏÔÊ¾Æ÷¿ª£¬¹â±ê¿ª£¬ÉÁË¸¿ª
 	ENABLE();
-	PORTD=0X06;//æ–‡å­—ä¸åŠ¨ï¼Œå…‰æ ‡è‡ªåŠ¨å³ç§»
+	PORTD=0X06;//ÎÄ×Ö²»¶¯£¬¹â±ê×Ô¶¯ÓÒÒÆ
 	ENABLE();
-	TRISC=0B11011111;//ä¸ŽSPIå¼•è„šç›¸å…³
-	SSPSTAT=0B01000000;SSPCON=0B00110100;//SPIæŽ¥æ”¶åˆå§‹åŒ–
-	GIE=1;PEIE=1;SSPIE=1;SSPIF=0;//SSPIE=1ä¸ºåªå¼€æŽ¥æ”¶ä¸­æ–­
+	TRISC=0B11011111;//ÓëSPIÒý½ÅÏà¹Ø
+	SSPSTAT=0B00000000;SSPCON=0B00100101;//SPI½ÓÊÕ³õÊ¼»¯ 
+	GIE=1;PEIE=1;SSPIE=1;SSPIF=0;//SSPIE=1ÎªÖ»¿ª½ÓÊÕÖÐ¶Ï
+
+	GIE=1;PEIE=1;SSPIE=1;SSPIF=0;//SSPIE=1ÎªÖ»¿ª½ÓÊÕÖÐ¶Ï
+	TRISB=0XF0;nRBPU=0;PORTB=0;
+	y=PORTB;RBIF=0;RBIE=1;
 loop:
-	PORTD=0X80;ENABLE();//å…‰æ ‡æŒ‡å‘ç¬¬ä¸€è¡Œä½ç½®
-	PORTD=table[rcreg>>4];ENABLE1();
+	if(flag==1){
+	PORTD=0X80;ENABLE();//¹â±êÖ¸ÏòµÚÒ»ÐÐÎ»ÖÃ
+	PORTD=table[rcreg>>8];ENABLE1();
+	PORTD=table[(rcreg&0xf0)>>4];ENABLE1();
 	PORTD=table[rcreg&0x0f];ENABLE1();
-	PORTD='H';ENABLE1();//é€ç¬¬ä¸€è¡Œç¬¬ä¸‰æ•°æ®
+	PORTD='H';ENABLE1();//ËÍµÚÒ»ÐÐµÚÈýÊý¾Ý
+	PORTD=0XC0;ENABLE();
+	PORTD=table[rea];ENABLE1();
+	flag=0;
+	}
 	goto loop;
 }
